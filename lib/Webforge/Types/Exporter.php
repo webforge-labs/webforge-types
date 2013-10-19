@@ -1,6 +1,6 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
  * Ein Exportert wandelt einen Typ in ein bestimmtes Format um
@@ -12,7 +12,6 @@ namespace Psc\Data\Type;
  */
 interface Exporter {
   
-  public function exportType(\Psc\Data\Type\Type $type);
+  public function exportType(Type $type);
   
 }
-?>

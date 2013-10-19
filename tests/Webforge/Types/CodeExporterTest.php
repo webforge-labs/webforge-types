@@ -2,7 +2,7 @@
 
 namespace Webforge\Types;
 
-use Webforge\Types\CodeExporter;
+use Mockery as m;
 
 /**
  * @group class:Webforge\Types\CodeExporter
@@ -11,8 +11,10 @@ class CodeExporterTest extends \Webforge\Types\Test\Base {
 
   public function setUp() {
     $this->chainClass = 'Webforge\Types\CodeExporter';
-    $this->exporter = $this->createCodeExporter();
     parent::setUp();
+
+    $this->codeWriter = m::mock('Webforge\Types\Adapters\CodeWriter');
+    $this->exporter = $this->createCodeExporter();
   }
 
   public function testConstruct() {
@@ -61,6 +63,6 @@ class CodeExporterTest extends \Webforge\Types\Test\Base {
   }
 
   public function createCodeExporter() {
-    return new CodeExporter();
+    return new CodeExporter($this->codeWriter);
   }
 }

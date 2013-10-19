@@ -19,7 +19,8 @@
     "webforge/common": ">= 1.4.1"
   },
   "require-dev": {
-    "webforge/testplate": "1.*"
+    "webforge/testplate": "1.*",
+    "mockery/mockery": "dev-master"
   },
   "extra": {
     "branch-alias":{

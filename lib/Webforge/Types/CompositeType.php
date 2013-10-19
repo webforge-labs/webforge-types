@@ -1,13 +1,15 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 use OutOfBoundsException;
+use Webforge\Common\ArrayUtil as A;
+use Webforge\Common\Util;
 
-class CompositeType extends \Psc\Data\Type\Type {
+class CompositeType extends Type {
   
   /**
-   * @var Psc\Data\Type\Type[]
+   * @var Webforge\Types\Type[]
    */
   protected $components = array();
   
@@ -23,7 +25,7 @@ class CompositeType extends \Psc\Data\Type\Type {
 
   public function getName($context = self::CONTEXT_DEFAULT) {
     if ($context === self::CONTEXT_DEBUG)
-      return \Webforge\Common\ArrayUtil::implode($this->components, '|', function ($component) {
+      return A::implode($this->components, '|', function ($component) {
         return $component->getName(Type::CONTEXT_DEBUG);
       });
       
@@ -34,19 +36,18 @@ class CompositeType extends \Psc\Data\Type\Type {
    * Sollte $this->phpHint setzen
    */
   protected function defineHint() {
-    
   }
   
   /**
-   * @param Psc\Data\Type\Type $componentType
-   * @param Psc\Data\Type\Type $componentType, ...
+   * @param Webforge\Types\Type $componentType
+   * @param Webforge\Types\Type $componentType, ...
    * 
    */
   public function setComponents() {
     $c = 1;
     $this->components = array(); // reset
     foreach (func_get_args() as $type) {
-      if (!($type instanceof Type)) throw new \InvalidArgumentException('Argumente können nur Psc\Data\Type\Type sein. '.\Psc\Code\Code::varInfo($type).' given');
+      if (!($type instanceof Type)) throw new \InvalidArgumentException('Argumente können nur Webforge\Types\Type sein. '.Util::varInfo($type).' given');
       $this->components[$c] = $type;
       $c++;
     }
@@ -82,4 +83,3 @@ class CompositeType extends \Psc\Data\Type\Type {
     return $this->phpHint; 
   }
 }
-?>

@@ -1,8 +1,8 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class LinkType extends \Psc\Data\Type\CompositeType implements InterfacedType {
+class LinkType extends \Webforge\Types\CompositeType implements InterfacedType {
   
   public function __construct() {
     $this->setComponents(new URIType(), new StringType());
@@ -17,4 +17,3 @@ class LinkType extends \Psc\Data\Type\CompositeType implements InterfacedType {
     $this->phpHint = $this->getInterface();
   }
 }
-?>

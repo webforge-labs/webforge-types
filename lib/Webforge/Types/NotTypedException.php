@@ -1,10 +1,9 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
  * @see EnclosingType Interface
  */
-class NotTypedException extends \Psc\Data\Type\Exception {
+class NotTypedException extends Exception {
 }
-?>

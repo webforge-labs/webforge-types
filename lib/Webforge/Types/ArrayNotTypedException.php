@@ -1,7 +1,6 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class ArrayNotTypedException extends \Psc\Data\Type\NotTypedException {
+class ArrayNotTypedException extends NotTypedException {
 }
-?>

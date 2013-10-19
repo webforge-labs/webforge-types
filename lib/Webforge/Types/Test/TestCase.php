@@ -4,18 +4,31 @@ namespace Webforge\Types\Test;
 
 use Psc\Data\Type\CodeExporter;
 use Webforge\Types\Adapters\ComponentMapper;
+use Webforge\Types\Type;
 use Webforge\Common\ClassUtil;
+use Mockery as m;
 
 class TestCase extends \Webforge\Code\Test\Base {
+
+  public function setUp() {
+    parent::setUp();
+    $this->mapper = m::mock('Webforge\Types\Adapters\ComponentMapper');
+  }
   
-  protected function assertTypeMapsComponent($class, Type $type, ComponentMapper $mapper) {
-    $this->assertInstanceOf('Psc\CMS\Component', $component = $mapper->inferComponent($type));
-    
-    if ($class !== 'any') {
-      $class = ClassUtil::expandNamespace($class, 'Psc\UI\Component');
-      $this->assertInstanceOf($class, $component);
+  protected function assertTypeMapsComponent($class, Type $type, $mapper = NULL) {
+    if ($mapper) {
+      throw new \Exception('This not implemented anymore');
     }
-    return $component;
+
+    $this->mapper->shouldReceive('createComponent')->once()->with(m::on(function($componentName) use ($class) {
+      if ($class === 'any') return TRUE;
+
+      $class = ClassUtil::expandNamespace($class, 'Psc\UI\Component');
+      $componentClass = ClassUtil::expandNamespace($componentName, 'Psc\UI\Component');
+
+
+      return $componentName === $class;
+    }));
   }
   
   /**

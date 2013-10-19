@@ -1,24 +1,18 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-/**
- *
- * wir leiten doch nicht von DateTimeType ab
- * Änderungen: siehe auch class DateTimeType
- */
-class DateType extends \Psc\Data\Type\ObjectType implements \Psc\Doctrine\ExportableType, MappedComponentType {
+class DateType extends \Webforge\Types\ObjectType implements DoctrineExportableType, MappedComponentType {
   
   public function getDoctrineExportType() {
     return 'PscDate';
   }
 
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('DatePicker');
   }
   
   public function __construct() {
-    parent::__construct(new \Psc\Code\Generate\GClass('Webforge\Common\DateTime\Date'));
+    parent::__construct(GClassAdapter::newGClass('Webforge\Common\DateTime\Date'));
   }
 }
-?>

@@ -1,11 +1,10 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class BooleanType extends \Psc\Data\Type\Type implements \Psc\Data\Type\MappedComponentType {
+class BooleanType extends Type implements \Webforge\Types\MappedComponentType {
   
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('Checkbox');
   }
 }
-?>

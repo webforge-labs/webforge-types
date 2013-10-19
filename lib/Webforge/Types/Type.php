@@ -13,6 +13,10 @@ abstract class Type {
   const CONTEXT_DOCBLOCK = 'context_docblock';
   const CONTEXT_DEBUG = 'context_debug';
 
+  public function __construct() {
+    // leave this because sublacsses are already calling this
+  }
+
   public function getName($context = self::CONTEXT_DEFAULT) {
     if ($context === self::CONTEXT_DOCBLOCK)
       return $this->getDocType();
