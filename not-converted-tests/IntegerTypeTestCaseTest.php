@@ -1,16 +1,15 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\IntegerTypeTestCase;
+use Webforge\Types\IntegerTypeTestCase;
 
 /**
- * @group class:Psc\Data\Type\IntegerTypeTestCase
+ * @group class:Webforge\Types\IntegerTypeTestCase
  */
-class IntegerTypeTestCaseTest extends \Psc\Code\Test\Base {
+class IntegerTypeTestCaseTest extends \Webforge\Types\Test\Base {
 
   public function testStubIncomplete() {
     $this->assertInstanceOf('Psc\Code\Test\Base', new IntegerTypeTestCase());
   }
 }
-?>

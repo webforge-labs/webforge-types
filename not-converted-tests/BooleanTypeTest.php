@@ -1,16 +1,15 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\BooleanType;
+use Webforge\Types\BooleanType;
 
 /**
- * @group class:Psc\Data\Type\BooleanType
+ * @group class:Webforge\Types\BooleanType
  */
-class BooleanTypeTest extends \Psc\Code\Test\Base {
+class BooleanTypeTest extends \Webforge\Types\Test\Base {
 
   public function testConstruct() {
     return new BooleanType();
   }
 }
-?>

@@ -1,21 +1,21 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 use Psc\Code\Generate\GClass;
 
 /**
- * @group class:Psc\Data\Type\EntityType
+ * @group class:Webforge\Types\EntityType
  */
 class EntityTypeTest extends TestCase {
   
   protected $entityType, $imageEntityType;
   
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\EntityType';
+    $this->chainClass = 'Webforge\Types\EntityType';
     parent::setUp();
-    $this->entityType = new EntityType(new GClass('Psc\Doctrine\TestEntities\Person'));
-    $this->imageEntityType = new EntityType(new GClass('Psc\Doctrine\Entities\BasicImage2'));
+    $this->entityType = new EntityType(GClassAdapter::newGClass('Psc\Doctrine\TestEntities\Person'));
+    $this->imageEntityType = new EntityType(GClassAdapter::newGClass('Psc\Doctrine\Entities\BasicImage2'));
   }
   
   public function testAcceptance() {
@@ -26,4 +26,3 @@ class EntityTypeTest extends TestCase {
     $this->assertTypeMapsComponent('SingleImage',$this->imageEntityType);
   }
 }
-?>

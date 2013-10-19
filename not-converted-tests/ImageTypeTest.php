@@ -1,17 +1,16 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\ImageType;
+use Webforge\Types\ImageType;
 
 /**
- * @group class:Psc\Data\Type\ImageType
+ * @group class:Webforge\Types\ImageType
  */
-class ImageTypeTest extends \Psc\Code\Test\Base {
+class ImageTypeTest extends \Webforge\Types\Test\Base {
 
   public function testConstruct() {
     $imageType = new ImageType();
     $this->assertEquals('Image',$imageType->getName());
   }
 }
-?>

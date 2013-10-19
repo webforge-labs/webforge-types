@@ -1,21 +1,20 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
- * @group class:Psc\Data\Type\IdType
+ * @group class:Webforge\Types\IdType
  */
-class IdTypeTest extends \Psc\Code\Test\Base {
+class IdTypeTest extends \Webforge\Types\Test\Base {
   
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\IdType';
+    $this->chainClass = 'Webforge\Types\IdType';
     parent::setUp();
     $this->type = new IdType();
   }
   
   public function testAcceptance() {
-    $this->assertInstanceOf('Psc\Data\Type\IntegerType',$this->type);
+    $this->assertInstanceOf('Webforge\Types\IntegerType',$this->type);
   }
 
 }
-?>

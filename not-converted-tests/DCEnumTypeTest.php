@@ -1,11 +1,11 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 use Psc\Code\Generate\GClass;
 
 /**
- * @group class:Psc\Data\Type\DCEnumType
+ * @group class:Webforge\Types\DCEnumType
  */
 class DCEnumTypeTest extends TestCase {
   
@@ -13,10 +13,10 @@ class DCEnumTypeTest extends TestCase {
   protected $gClass;
   
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\DCEnumType';
+    $this->chainClass = 'Webforge\Types\DCEnumType';
     parent::setUp();
     
-    $this->gClass = new GClass('EnumTestType');
+    $this->gClass = GClassAdapter::newGClass('EnumTestType');
     $this->gClass->setNamespace(__NAMESPACE__);
     $this->enumType = new DCEnumType($this->gClass);
 
@@ -35,10 +35,10 @@ class DCEnumTypeTest extends TestCase {
     $this->assertInstanceOf('Psc\Doctrine\ExportableType', $this->enumType);
     $this->assertEquals('test_speakerType', $this->enumType->getDoctrineExportType());
     
-    $this->assertInstanceOf('Psc\Data\Type\ValidationType', $this->enumType);
+    $this->assertInstanceOf('Webforge\Types\ValidationType', $this->enumType);
     $this->assertInstanceOf('Psc\Form\ValuesValidatorRule', $rule = $this->enumType->getValidatorRule(new TypeRuleMapper()));
     
-    $this->assertEquals('Psc\Data\Type\EnumTestType', $this->enumType->getDocType());
+    $this->assertEquals('Webforge\Types\EnumTestType', $this->enumType->getDocType());
     
     $rule->validate(EnumTestType::MAIN);
     $rule->validate(EnumTestType::MAN);
@@ -72,4 +72,3 @@ class EnumTestType extends \Psc\Doctrine\EnumType {
     return self::getType('test_speakerType');
   }
 }
-?>

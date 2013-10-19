@@ -1,16 +1,16 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
- * @group class:Psc\Data\Type\DynamicEnumType
+ * @group class:Webforge\Types\DynamicEnumType
  */
-class DynamicEnumTypeTest extends \Psc\Code\Test\Base {
+class DynamicEnumTypeTest extends \Webforge\Types\Test\Base {
   
   protected $dynamicEnumType;
   
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\DynamicEnumType';
+    $this->chainClass = 'Webforge\Types\DynamicEnumType';
     parent::setUp();
     //$this->dynamicEnumType = new DynamicEnumType();
   }
@@ -19,4 +19,3 @@ class DynamicEnumTypeTest extends \Psc\Code\Test\Base {
     $this->markTestIncomplete('vom tiptoi acceptance test für gameTypeClass kopieren');
   }
 }
-?>

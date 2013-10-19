@@ -1,18 +1,18 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 use Psc\Code\Generate\GClass;
 
 /**
- * @group class:Psc\Data\Type\TypeMatcher
+ * @group class:Webforge\Types\TypeMatcher
  */
-class TypeMatcherTest extends \Psc\Code\Test\Base {
+class TypeMatcherTest extends \Webforge\Types\Test\Base {
   
   protected $matcher;
   
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\TypeMatcher';
+    $this->chainClass = 'Webforge\Types\TypeMatcher';
     parent::setUp();
     $this->matcher = $this->createTypeMatcher();
   }
@@ -40,7 +40,7 @@ class TypeMatcherTest extends \Psc\Code\Test\Base {
     $match(7,'Integer');
     $match(array(1,2,3),'Array');
     $match((object) array(1,2,3), 'Object');
-    $match(new \Psc\DataInput, new ObjectType(new GClass('Psc\DataInput')));
+    $match(new \Psc\DataInput, new ObjectType(GClassAdapter::newGClass('Psc\DataInput')));
     
     $fail(0, 'String');
     $fail('s', 'Integer');

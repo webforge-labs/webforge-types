@@ -1,23 +1,22 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
- * @group class:Psc\Data\Type\PersistentCollectionType
+ * @group class:Webforge\Types\PersistentCollectionType
  */
-class PersistentCollectionTypeTest extends \Psc\Code\Test\Base {
+class PersistentCollectionTypeTest extends \Webforge\Types\Test\Base {
   
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\PersistentCollectionType';
+    $this->chainClass = 'Webforge\Types\PersistentCollectionType';
     parent::setUp();
   }
   
   public function testConstruct() {
     $pct = new PersistentCollectionType(new \Psc\Code\Generate\GClass('Psc\Doctrine\TestEntities\Tag'));
-    $this->assertInstanceOf('Psc\Data\Type\CollectionType', $pct);
+    $this->assertInstanceOf('Webforge\Types\CollectionType', $pct);
     
-    $this->assertInstanceOf('Psc\Data\Type\ObjectType', $pct->getType());
+    $this->assertInstanceOf('Webforge\Types\ObjectType', $pct->getType());
     $this->assertEquals('Psc\Doctrine\TestEntities\Tag',$pct->getType()->getClass()->getFQN());
   }
 }
-?>

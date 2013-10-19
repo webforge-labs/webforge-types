@@ -1,11 +1,11 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\URIType;
+use Webforge\Types\URIType;
 
 /**
- * @group class:Psc\Data\Type\URIType
+ * @group class:Webforge\Types\URIType
  */
 class URITypeTest extends TestCase {
 
@@ -13,4 +13,3 @@ class URITypeTest extends TestCase {
     $this->assertTypeMapsComponent('any', new URIType());
   }
 }
-?>

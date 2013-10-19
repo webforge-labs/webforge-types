@@ -1,16 +1,16 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 use Psc\Form\IdValidatorRule;
 
 /**
- * @group class:Psc\Data\Type\TypeRuleMapper
+ * @group class:Webforge\Types\TypeRuleMapper
  */
-class TypeRuleMapperTest extends \Psc\Code\Test\Base {
+class TypeRuleMapperTest extends \Webforge\Types\Test\Base {
   
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\TypeRuleMapper';
+    $this->chainClass = 'Webforge\Types\TypeRuleMapper';
     parent::setUp();
     $this->mapper = new TypeRuleMapper();
   }
@@ -52,4 +52,3 @@ class TypeRuleMapperTest extends \Psc\Code\Test\Base {
     );
   }
 }
-?>

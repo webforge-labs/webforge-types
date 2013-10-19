@@ -1,58 +1,58 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\CodeExporter;
+use Webforge\Types\CodeExporter;
 
 /**
- * @group class:Psc\Data\Type\CodeExporter
+ * @group class:Webforge\Types\CodeExporter
  */
-class CodeExporterTest extends \Psc\Code\Test\Base {
+class CodeExporterTest extends \Webforge\Types\Test\Base {
 
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\CodeExporter';
+    $this->chainClass = 'Webforge\Types\CodeExporter';
     $this->exporter = $this->createCodeExporter();
     parent::setUp();
   }
 
   public function testConstruct() {
-    $this->assertInstanceOf('Psc\Data\Type\Exporter', $this->createCodeExporter());
+    $this->assertInstanceOf('Webforge\Types\Exporter', $this->createCodeExporter());
   }
   
   public function testExportBaseType() {
-    $this->expectExport('new \Psc\Data\Type\IntegerType()',
+    $this->expectExport('new \Webforge\Types\IntegerType()',
                          new IntegerType()
                        );
 
-    $this->expectExport('new \Psc\Data\Type\StringType()',
+    $this->expectExport('new \Webforge\Types\StringType()',
                          new StringType()
                        );
     
   }
   
   public function testCompositeType() {
-    $this->expectExport('new \Psc\Data\Type\LinkType()',
+    $this->expectExport('new \Webforge\Types\LinkType()',
                          new LinkType()
                        );
   }
   
   public function testSpecialCaseEnclosingType_i18nType() {
-    $this->expectExport("new \Psc\Data\Type\I18nType(new \Psc\Data\Type\StringType(), array('de','fr'))",
-                         new \Psc\Data\Type\I18nType(new \Psc\Data\Type\StringType(), array('de','fr'))
+    $this->expectExport("new \Webforge\Types\I18nType(new \Webforge\Types\StringType(), array('de','fr'))",
+                         new \Webforge\Types\I18nType(new \Webforge\Types\StringType(), array('de','fr'))
                       );
   }
   
   public function testExportEnclosingType() {
-    $this->expectExport('new \Psc\Data\Type\ArrayType(new \Psc\Data\Type\IntegerType())',
-                         new \Psc\Data\Type\ArrayType(new IntegerType())
+    $this->expectExport('new \Webforge\Types\ArrayType(new \Webforge\Types\IntegerType())',
+                         new \Webforge\Types\ArrayType(new IntegerType())
                        );
 
-    $this->expectExport("new \Psc\Data\Type\CollectionType(\Psc\Data\Type\CollectionType::PSC_ARRAY_COLLECTION, new \Psc\Data\Type\ObjectType(new \Psc\Code\Generate\GClass('Psc\\\\CMS\\\\SpecialEntity')))",
-                         new \Psc\Data\Type\CollectionType(CollectionType::PSC_ARRAY_COLLECTION, new \Psc\Data\Type\ObjectType(new \Psc\Code\Generate\GClass('Psc\CMS\SpecialEntity')))
+    $this->expectExport("new \Webforge\Types\CollectionType(\Webforge\Types\CollectionType::PSC_ARRAY_COLLECTION, new \Webforge\Types\ObjectType(new \Psc\Code\Generate\GClass('Psc\\\\CMS\\\\SpecialEntity')))",
+                         new \Webforge\Types\CollectionType(CollectionType::PSC_ARRAY_COLLECTION, new \Webforge\Types\ObjectType(new \Psc\Code\Generate\GClass('Psc\CMS\SpecialEntity')))
                        );
     
-    $this->expectExport("new \Psc\Data\Type\PersistentCollectionType(new \Psc\Code\Generate\GClass('Psc\\\\CMS\\\\SpecialEntity'))",
-                         new \Psc\Data\Type\PersistentCollectionType(new \Psc\Code\Generate\GClass('Psc\CMS\SpecialEntity'))
+    $this->expectExport("new \Webforge\Types\PersistentCollectionType(new \Psc\Code\Generate\GClass('Psc\\\\CMS\\\\SpecialEntity'))",
+                         new \Webforge\Types\PersistentCollectionType(new \Psc\Code\Generate\GClass('Psc\CMS\SpecialEntity'))
                        );
   }
 
@@ -64,4 +64,3 @@ class CodeExporterTest extends \Psc\Code\Test\Base {
     return new CodeExporter();
   }
 }
-?>
