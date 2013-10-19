@@ -2,7 +2,7 @@
 
 namespace Webforge\Types;
 
-class TextType extends \Webforge\Types\StringType implements \Webforge\Types\MappedComponentType,\Psc\Doctrine\ExportableType {
+class TextType extends StringType implements MappedComponentType, DoctrineExportableType {
   
   public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('TextBox');

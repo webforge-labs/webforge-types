@@ -2,7 +2,7 @@
 
 namespace Webforge\Types;
 
-class SmallIntegerType extends \Webforge\Types\IntegerType implements MappedComponentType, \Psc\Doctrine\ExportableType {
+class SmallIntegerType extends IntegerType implements MappedComponentType, DoctrineExportableType {
   
   public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('SmallIntegerField');

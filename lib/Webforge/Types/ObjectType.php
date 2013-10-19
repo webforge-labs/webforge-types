@@ -1,11 +1,11 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 use Psc\Code\Generate\GClass;
 use Psc\Code\Code;
 
-class ObjectType extends \Psc\Data\Type\Type implements ParameterHintedType, \Psc\Doctrine\ExportableType {
+class ObjectType extends Type implements ParameterHintedType, DoctrineExportableType {
   
   /**
    * @var GClass
@@ -118,7 +118,7 @@ class ObjectType extends \Psc\Data\Type\Type implements ParameterHintedType, \Ps
 
   public function implementsInterface($FQN) {
     if (!($FQN instanceof GClass)) {
-      $FQN = new GClass($FQN);
+      $FQN = GClassAdapter::newGClass($FQN);
     }
     return $this->getGClass()->hasInterface($FQN);
   }

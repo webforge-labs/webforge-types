@@ -1,6 +1,6 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
  * Ein Type der z.B. für Code Generation nützlich ist, aber eigentlich keine "echte" Verwendung in PHP-Klassen hat
@@ -10,4 +10,3 @@ namespace Psc\Data\Type;
  */
 interface PseudoType {
 }
-?>

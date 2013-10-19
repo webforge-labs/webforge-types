@@ -1,6 +1,6 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
  * Ein Pseudotype für den DokumentationsTyp "mixed"
@@ -14,4 +14,3 @@ class MixedType extends Type implements PseudoType {
     return 'mixed';
   }
 }
-?>

@@ -22,7 +22,7 @@ use Webforge\Types\Adapters\TypeRuleMapper;
  *
  * z. B. Eine AutoIncrement-ID in der Datenbank ist ein PositiveInteger mit $zero === FALSE
  */
-class IntegerType extends \Webforge\Types\Type implements ValidationType, \Psc\Doctrine\ExportableType, MappedComponentType {
+class IntegerType extends Type implements ValidationType, DoctrineExportableType, MappedComponentType {
   
   /**
    * @var bool
@@ -68,4 +68,3 @@ class IntegerType extends \Webforge\Types\Type implements ValidationType, \Psc\D
     return '[Type:'.$this->getTypeClass()->getFQN().' Zero:'.($this->hasZero() ? 'true' : 'false').']';
   }
 }
-?>
