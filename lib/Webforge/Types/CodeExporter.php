@@ -4,6 +4,7 @@ namespace Webforge\Types;
 
 use Webforge\Types\Exporter;
 use Webforge\Types\Adapters\CodeWriter;
+use Webforge\Common\ClassInterface;
 
 /**
  * Exportiert den Type so, dass er als PHP Code ausgeführt werden kann und dann wieder der gleiche Type ist (nicht identisch)
@@ -28,20 +29,13 @@ class CodeExporter implements \Webforge\Types\Exporter {
       );
 
     } elseif ($type instanceof CollectionType) {
-      $implementation = $type->getClass()->getFQN();
-      if (CollectionType::PSC_ARRAY_COLLECTION === $implementation) {
-        $implementation = '\Webforge\Types\CollectionType::PSC_ARRAY_COLLECTION';
-      } elseif (CollectionType::DOCTRINE_ARRAY_COLLECTION === $implementation) {
-        $implementation = '\Webforge\Types\CollectionType::DOCRTRINE_ARRAY_COLLECTION';
-      } else {
-        $implementation = '\\'.$implementation;
-      }
+      $implementationParameter = $type->getImplementationConstantCode();
       
       return $this->codeWriter->writeConstructor(
         $type->getTypeClass(),
 
         // "purer" php code
-        $implementation.
+        $implementationParameter.
         ($type->isTyped() ? ', '.$this->exportType($type->getType()) : NULL)
       );
 
@@ -84,7 +78,7 @@ class CodeExporter implements \Webforge\Types\Exporter {
     //throw new TypeException('Kann '.$type->getName().' nicht als PHP-Code exportieren');
   }
   
-  protected function exportGClass(GClass $gClass) {
+  protected function exportGClass(ClassInterface $gClass) {
     return $this->codeWriter->exportConstructor(GClassAdapter::newGClass('Psc\Code\Generate\GClass'), array($gClass->getFQN()));
   }
 }

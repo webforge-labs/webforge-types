@@ -1,15 +1,15 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Code\Generate\GClass;
+use Webforge\Common\ClassInterface;
 
-class PersistentCollectionType extends \Psc\Data\Type\CollectionType {
+class PersistentCollectionType extends \Webforge\Types\CollectionType {
   
-  public function __construct(GClass $entityClass) {
-    parent::__construct(self::PSC_ARRAY_COLLECTION,
-                        new EntityType($entityClass)
-                        );
+  public function __construct(ClassInterface $entityClass) {
+    parent::__construct(
+      self::WEBFORGE_COLLECTION,
+      new EntityType($entityClass)
+    );
   }
 }
-?>

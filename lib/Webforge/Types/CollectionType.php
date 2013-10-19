@@ -17,6 +17,8 @@ class CollectionType extends \Webforge\Types\InterfacedObjectType implements Map
    * @var bool|NULL
    */
   protected $isList = NULL;
+
+  protected $implementation;
   
   /**
    * @param const $implementation
@@ -27,13 +29,29 @@ class CollectionType extends \Webforge\Types\InterfacedObjectType implements Map
          throw new InvalidArgumentException("implementation needs to be of _COLLECTION constant");
       }
 
-      $implementation = GClassAdapter::newGClass($implementation);
+      $this->implementation = $implementation = GClassAdapter::newGClass($implementation);
     }
     
     parent::__construct($implementation);
     
     if (isset($innerType)) {
       $this->setType($innerType);
+    }
+  }
+
+  public function getImplementationConstantCode() {
+    if (!isset($this->implementation)) return 'NULL';
+
+    $impl = $this->implementation->getFQN();
+
+    if (self::PSC_ARRAY_COLLECTION === $impl) {
+      return '\\'.__CLASS__.'::PSC_ARRAY_COLLECTION';
+    } elseif (self::DOCTRINE_ARRAY_COLLECTION === $impl) {
+      return  '\\'.__CLASS__.'::DOCTRINE_ARRAY_COLLECTION';
+    } elseif (self::WEBFORGE_COLLECTION === $impl) {
+      return  '\\'.__CLASS__.'::WEBFORGE_COLLECTION';
+    } else {
+      return '\\'.$this->implementation;
     }
   }
   

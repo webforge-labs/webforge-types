@@ -2,7 +2,7 @@
 
 namespace Webforge\Types;
 
-use Webforge\Types\Adapters\CompnentMapper;
+use Webforge\Types\Adapters\ComponentMapper;
 
 class EntityType extends ObjectType implements MappedComponentType {
   

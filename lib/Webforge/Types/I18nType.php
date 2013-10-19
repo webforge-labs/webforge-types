@@ -1,11 +1,11 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
  * Ein Wrapper, der die innere Komponente in mehrere Sprachen übersetzen kann
  */
-class I18nType extends ArrayType implements \Psc\Data\Type\MappedComponentType {
+class I18nType extends ArrayType implements MappedComponentType {
   
   /**
    * @var array
@@ -20,10 +20,10 @@ class I18nType extends ArrayType implements \Psc\Data\Type\MappedComponentType {
     parent::__construct($type, $list = FALSE); // es ist immer ein assoziativer array / hashmap! weil $language=>$languageValue
   }
   
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper
-            ->createComponent('I18nWrapper')
-              ->dpi($this->getType(), $this->languages, $componentMapper);
+      ->createComponent('I18nWrapper')
+        ->dpi($this->getType(), $this->languages, $componentMapper);
   }
   
   /**
@@ -41,4 +41,3 @@ class I18nType extends ArrayType implements \Psc\Data\Type\MappedComponentType {
     return $this->languages;
   }
 }
-?>
