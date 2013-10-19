@@ -1,0 +1,28 @@
+{
+  "name":"webforge/types",
+  "description":"A simple, extendable type system for php",
+  "license":"MIT",
+  "authors":[
+    {
+      "name":"Philipp Scheit",
+      "email":"p.scheit@ps-webforge.com"
+    }
+  ],
+  "minimum-stability":"dev",
+  "require":{
+    "webforge/common": ">= 1.4.1"
+  },
+  "autoload":{
+    "psr-0":{
+      "Webforge\\Types":["lib/", "tests/"]
+    }
+  },
+  "extra": {
+    "branch-alias":{
+      "dev-master":"1.0.x-dev"
+    }
+  },
+  "require-dev": {
+    "webforge/testplate": "1.*"
+  }
+}
