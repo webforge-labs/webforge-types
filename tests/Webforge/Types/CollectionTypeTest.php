@@ -2,13 +2,10 @@
 
 namespace Webforge\Types;
 
-/**
- * @group class:Psc\Data\Type\CollectionType
- */
 class CollectionTypeTest extends \Webforge\Code\Test\Base {
 
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\CollectionType';
+    $this->chainClass = 'Webforge\Types\CollectionType';
     parent::setUp();
   }
 
