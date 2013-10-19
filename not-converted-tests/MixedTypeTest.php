@@ -5,7 +5,7 @@ namespace Webforge\Types;
 /**
  * @group class:Webforge\Types\MixedType
  */
-class MixedTypeTest extends TestCase {
+class MixedTypeTest extends \Webforge\Types\Test\TestCase {
   
   protected $mixedType;
   

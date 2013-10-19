@@ -7,7 +7,7 @@ use Webforge\Types\DateTimeType;
 /**
  * @group class:Webforge\Types\DateTimeType
  */
-class DateTimeTypeTest extends TestCase {
+class DateTimeTypeTest extends \Webforge\Types\Test\TestCase {
 
   public function setUp() {
     $this->chainClass = 'Webforge\Types\DateTimeType';

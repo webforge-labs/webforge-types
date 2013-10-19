@@ -5,7 +5,7 @@ namespace Webforge\Types;
 /**
  * @group class:Webforge\Types\FloatType
  */
-class FloatTypeTest extends TestCase {
+class FloatTypeTest extends \Webforge\Types\Test\TestCase {
   
   protected $floatType;
   

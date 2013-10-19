@@ -7,7 +7,7 @@ use Psc\Code\Generate\GClass;
 /**
  * @group class:Webforge\Types\EntityType
  */
-class EntityTypeTest extends TestCase {
+class EntityTypeTest extends \Webforge\Types\Test\TestCase {
   
   protected $entityType, $imageEntityType;
   

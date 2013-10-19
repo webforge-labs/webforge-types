@@ -5,7 +5,7 @@ namespace Webforge\Types;
 /**
  * @group class:Webforge\Types\DateType
  */
-class DateTypeTest extends TestCase {
+class DateTypeTest extends \Webforge\Types\Test\TestCase {
   
   protected $dateType;
   

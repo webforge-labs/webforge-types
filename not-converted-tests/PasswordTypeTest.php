@@ -5,7 +5,7 @@ namespace Webforge\Types;
 /**
  * @group class:Webforge\Types\PasswordType
  */
-class PasswordTypeTest extends TestCase {
+class PasswordTypeTest extends \Webforge\Types\Test\TestCase {
   
   protected $passwordType;
   

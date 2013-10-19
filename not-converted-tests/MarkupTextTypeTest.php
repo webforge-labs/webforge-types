@@ -7,7 +7,7 @@ use Webforge\Types\MarkupTextType;
 /**
  * @group class:Webforge\Types\MarkupTextType
  */
-class MarkupTextTypeTest extends TestCase {
+class MarkupTextTypeTest extends \Webforge\Types\Test\TestCase {
 
   public function testMapsSome() {
     $this->assertTypeMapsComponent('any', new MarkupTextType());

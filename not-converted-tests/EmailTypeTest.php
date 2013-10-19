@@ -7,7 +7,7 @@ use Webforge\Types\EmailType;
 /**
  * @group class:Webforge\Types\EmailType
  */
-class EmailTypeTest extends TestCase {
+class EmailTypeTest extends \Webforge\Types\Test\TestCase {
 
   public function setUp() {
     $this->chainClass = 'Webforge\Types\EmailType';

@@ -7,7 +7,7 @@ use Psc\Code\Generate\GClass;
 /**
  * @group class:Webforge\Types\DCEnumType
  */
-class DCEnumTypeTest extends TestCase {
+class DCEnumTypeTest extends \Webforge\Types\Test\TestCase {
   
   protected $dCEnumType;
   protected $gClass;

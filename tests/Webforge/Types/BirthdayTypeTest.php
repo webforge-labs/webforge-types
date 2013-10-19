@@ -4,10 +4,7 @@ namespace Webforge\Types;
 
 use Webforge\Types\BirthdayType;
 
-/**
- * @group class:Webforge\Types\BirthdayType
- */
-class BirthdayTypeTest extends TestCase {
+class BirthdayTypeTest extends \Webforge\Types\Test\TestCase {
 
   public function setUp() {
     $this->chainClass = 'Webforge\Types\BirthdayType';

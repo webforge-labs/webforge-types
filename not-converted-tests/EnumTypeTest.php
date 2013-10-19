@@ -5,7 +5,7 @@ namespace Webforge\Types;
 /**
  * @group class:Webforge\Types\EnumType
  */
-class EnumTypeTest extends TestCase {
+class EnumTypeTest extends \Webforge\Types\Test\TestCase {
   
   protected $enumType;
   
