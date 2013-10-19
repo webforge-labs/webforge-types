@@ -1,17 +1,16 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\Exporter;
+use Webforge\Types\Exporter;
 use Psc\Code\Generate\CodeWriter;
-use Psc\Code\Generate\GClass;
 
 /**
  * Exportiert den Type so, dass er als PHP Code ausgeführt werden kann und dann wieder der gleiche Type ist (nicht identisch)
  *
  * dies brauchen wir z. B. beim Serialisieren von Types für den EntityBuilder
  */
-class CodeExporter extends \Psc\SimpleObject implements \Psc\Data\Type\Exporter {
+class CodeExporter extends \Psc\SimpleObject implements \Webforge\Types\Exporter {
   
   protected $codeWriter;
   
@@ -31,9 +30,9 @@ class CodeExporter extends \Psc\SimpleObject implements \Psc\Data\Type\Exporter 
     } elseif ($type instanceof CollectionType) {
       $implementation = $type->getClass()->getFQN();
       if (CollectionType::PSC_ARRAY_COLLECTION === $implementation) {
-        $implementation = '\Psc\Data\Type\CollectionType::PSC_ARRAY_COLLECTION';
+        $implementation = '\Webforge\Types\CollectionType::PSC_ARRAY_COLLECTION';
       } elseif (CollectionType::DOCTRINE_ARRAY_COLLECTION === $implementation) {
-        $implementation = '\Psc\Data\Type\CollectionType::DOCRTRINE_ARRAY_COLLECTION';
+        $implementation = '\Webforge\Types\CollectionType::DOCRTRINE_ARRAY_COLLECTION';
       } else {
         $implementation = '\\'.$implementation;
       }
@@ -81,7 +80,6 @@ class CodeExporter extends \Psc\SimpleObject implements \Psc\Data\Type\Exporter 
   }
   
   protected function exportGClass(GClass $gClass) {
-    return $this->codeWriter->exportConstructor(new GClass('Psc\Code\Generate\GClass'), array($gClass->getFQN()));
+    return $this->codeWriter->exportConstructor(GClassAdapter::newGClass('Psc\Code\Generate\GClass'), array($gClass->getFQN()));
   }
 }
-?>

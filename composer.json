@@ -9,21 +9,21 @@
     }
   ],
   "minimum-stability":"dev",
-  "require":{
-    "webforge/common": ">= 1.4.1"
-  },
   "autoload":{
     "psr-0":{
       "Webforge\\Types":["lib/", "tests/"],
       "Webforge\\Common": ["D:\\www\\webforge-common\\lib"]
     }
   },
+  "require":{
+    "webforge/common": ">= 1.4.1"
+  },
+  "require-dev": {
+    "webforge/testplate": "1.*"
+  },
   "extra": {
     "branch-alias":{
       "dev-master":"1.0.x-dev"
     }
-  },
-  "require-dev": {
-    "webforge/testplate": "1.*"
   }
 }

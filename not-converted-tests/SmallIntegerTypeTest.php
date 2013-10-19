@@ -1,11 +1,11 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\SmallIntegerType;
+use Webforge\Types\SmallIntegerType;
 
 /**
- * @group class:Psc\Data\Type\SmallIntegerType
+ * @group class:Webforge\Types\SmallIntegerType
  */
 class SmallIntegerTypeTest extends IntegerTypeTestCase {
 
@@ -16,4 +16,3 @@ class SmallIntegerTypeTest extends IntegerTypeTestCase {
     return $type;
   }
 }
-?>

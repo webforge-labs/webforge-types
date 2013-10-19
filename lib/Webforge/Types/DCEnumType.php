@@ -8,10 +8,7 @@ use Webforge\Types\Adapters\ComponentMapper;
 use Webforge\Types\Adapters\TypeRuleMapper;
 use Psc\Doctrine\ExportableType;
 
-/**
- * 
- */
-class DCEnumType extends Type implements \Psc\Doctrine\ExportableType, ValidationType, MappedComponentType, WalkableHintType {
+class DCEnumType extends Type implements DoctrineExportableType, ValidationType, MappedComponentType, WalkableHintType {
   
   /**
    * 
@@ -111,4 +108,3 @@ class DCEnumType extends Type implements \Psc\Doctrine\ExportableType, Validatio
     return $this->labeler;
   }
 }
-?>

@@ -1,16 +1,16 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\EmailType;
+use Webforge\Types\EmailType;
 
 /**
- * @group class:Psc\Data\Type\EmailType
+ * @group class:Webforge\Types\EmailType
  */
 class EmailTypeTest extends TestCase {
 
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\EmailType';
+    $this->chainClass = 'Webforge\Types\EmailType';
     parent::setUp();
   }
 
@@ -26,4 +26,3 @@ class EmailTypeTest extends TestCase {
     return new EmailType();
   }
 }
-?>

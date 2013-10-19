@@ -1,11 +1,10 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class CodeType extends TextType implements \Psc\Data\Type\MappedComponentType {
+class CodeType extends TextType implements MappedComponentType {
 
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('CodeEditor');
   }
 }
-?>

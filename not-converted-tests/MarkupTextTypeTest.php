@@ -1,11 +1,11 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\MarkupTextType;
+use Webforge\Types\MarkupTextType;
 
 /**
- * @group class:Psc\Data\Type\MarkupTextType
+ * @group class:Webforge\Types\MarkupTextType
  */
 class MarkupTextTypeTest extends TestCase {
 
@@ -13,4 +13,3 @@ class MarkupTextTypeTest extends TestCase {
     $this->assertTypeMapsComponent('any', new MarkupTextType());
   }
 }
-?>

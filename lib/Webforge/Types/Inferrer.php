@@ -1,16 +1,13 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Code\Generate\GClass;
-use Psc\Code\Code;
-
-class Inferrer extends \Psc\SimpleObject {
+class Inferrer {
   
   /**
    * Versucht den Typ von einem PHP-Basis-Datentyp zu erraten
    *
-   * @throws Psc\Data\Type\InferException
+   * @throws Webforge\Types\InferException
    */
   public function inferType($value) {
     if (is_string($value)) {
@@ -33,7 +30,7 @@ class Inferrer extends \Psc\SimpleObject {
   }
   
   public function inferObjectType($object) {
-    $objectClass = new GClass(Code::getClass($object));
+    $objectClass = GClassAdapter::newGClass(get_class($object));
     if ($object instanceof \Doctrine\Common\Collections\Collection) {
       return new CollectionType($objectClass);
     } else {
@@ -41,4 +38,3 @@ class Inferrer extends \Psc\SimpleObject {
     }
   }
 }
-?>

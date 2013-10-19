@@ -1,20 +1,21 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Code\Generate\GClass;
+use Webforge\Types\Adapters\CompnentMapper;
 
 class EntityType extends ObjectType implements MappedComponentType {
   
   /**
-   *
-   * am ebesten den $componentMapper zu benutzen um die Componente zu instanziieren:
-   *
+   * Returnst the component that is mapped per default for this Type
+   * 
+   * use the componentMapper to create the component
+   * 
    *  return $componentMapper->createComponent('BirthdayPicker');
    * 
    * @return Psc\CMS\Component
    */
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(ComponentMapper $componentMapper) {
     if ($this->isImage()) {
       return $componentMapper->createComponent('SingleImage');
     }
@@ -31,6 +32,9 @@ class EntityType extends ObjectType implements MappedComponentType {
     return $this->implementsInterface('Psc\Image\Image');
   }
 
+  /**
+   * @return bool
+   */
   public function isCSEntry() {
     return $this->implementsInterface('Psc\TPL\ContentStream\Entry');
   }

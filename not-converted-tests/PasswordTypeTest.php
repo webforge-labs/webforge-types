@@ -1,16 +1,16 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
- * @group class:Psc\Data\Type\PasswordType
+ * @group class:Webforge\Types\PasswordType
  */
 class PasswordTypeTest extends TestCase {
   
   protected $passwordType;
   
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\PasswordType';
+    $this->chainClass = 'Webforge\Types\PasswordType';
     parent::setUp();
     $this->passwordType = new PasswordType();
   }
@@ -19,4 +19,3 @@ class PasswordTypeTest extends TestCase {
     $this->assertTypeMapsComponent('PasswordFields',$this->passwordType);
   }
 }
-?>

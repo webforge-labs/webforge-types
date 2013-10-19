@@ -25,7 +25,7 @@ class TypeTest extends \Webforge\Code\Test\Base {
 
   public function testTypeHasACreateFunctionAsSelfFactory() {
     $type = CustomStringType::create();
-    $this->assertInstanceOf('Webforge\Types\CustomStringType', $type3);
+    $this->assertInstanceOf('Webforge\Types\CustomStringType', $type);
     $this->assertEquals('CustomString',$type->getName());
   }
    

@@ -1,16 +1,16 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
- * @group class:Psc\Data\Type\I18nType
+ * @group class:Webforge\Types\I18nType
  */
-class I18nTypeTest extends \Psc\Data\Type\TestCase {
+class I18nTypeTest extends \Webforge\Types\TestCase {
   
   protected $i18nType;
   
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\I18nType';
+    $this->chainClass = 'Webforge\Types\I18nType';
     parent::setUp();
     $this->i18nType = new I18nType(Type::create('String'), array('de','fr'));
   }
@@ -21,4 +21,3 @@ class I18nTypeTest extends \Psc\Data\Type\TestCase {
     $this->assertEquals(array('de','fr'), $component->getLanguages());
   }
 }
-?>

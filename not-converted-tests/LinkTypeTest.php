@@ -1,11 +1,11 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\LinkType;
+use Webforge\Types\LinkType;
 
 /**
- * @group class:Psc\Data\Type\LinkType
+ * @group class:Webforge\Types\LinkType
  */
 class LinkTypeTest extends CompositeTypeTestCase {
   
@@ -21,18 +21,17 @@ class LinkTypeTest extends CompositeTypeTestCase {
    * @depends testConstruct
    */
   public function testComponentsOrder($link) {
-    $this->assertInstanceOf('Psc\Data\Type\URIType',$link->getComponent(1));
-    $this->assertInstanceOf('Psc\Data\Type\StringType',$link->getComponent(2));
+    $this->assertInstanceOf('Webforge\Types\URIType',$link->getComponent(1));
+    $this->assertInstanceOf('Webforge\Types\StringType',$link->getComponent(2));
   }
   
   /**
    * @depends testConstruct
    */
   public function testInterfaced($link) {
-    $this->assertInstanceOf('Psc\Data\Type\InterfacedType', $link);
+    $this->assertInstanceOf('Webforge\Types\InterfacedType', $link);
     $this->assertTrue(interface_exists($link->getInterface()), 'Interface: '.$link->getInterface().' existiert nicht');
-    $this->assertEquals('Psc\Data\Type\Interfaces\Link', $link->getInterface());
-    $this->assertEquals('Psc\Data\Type\Interfaces\Link', $link->getPHPHint());
+    $this->assertEquals('Webforge\Types\Interfaces\Link', $link->getInterface());
+    $this->assertEquals('Webforge\Types\Interfaces\Link', $link->getPHPHint());
   }
 }
-?>

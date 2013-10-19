@@ -1,16 +1,16 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
- * @group class:Psc\Data\Type\DateType
+ * @group class:Webforge\Types\DateType
  */
 class DateTypeTest extends TestCase {
   
   protected $dateType;
   
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\DateType';
+    $this->chainClass = 'Webforge\Types\DateType';
     parent::setUp();
     $this->dateType = new DateType();
   }
@@ -23,4 +23,3 @@ class DateTypeTest extends TestCase {
     $this->assertObjectType('Webforge\Common\DateTime\Date', $this->dateType);
   }
 }
-?>

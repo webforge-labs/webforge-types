@@ -2,18 +2,16 @@
 
 namespace Webforge\Types;
 
-use Psc\Code\Generate\GClass;
 use Webforge\Types\Adapters\TypeRuleMapper;
 
 /**
  *
  * Änderungen: siehe auch class DateType
  */
-class DateTimeType extends \Webforge\Types\ObjectType implements \Psc\Doctrine\ExportableType, MappedComponentType, ValidationType {
+class DateTimeType extends \Webforge\Types\ObjectType implements DoctrineExportableType, MappedComponentType, ValidationType {
   
   public function getDoctrineExportType() {
     return 'PscDateTime';
-    //return \Doctrine\DBAL\Types\Type::DATETIME;
   }
   
   public function getValidatorRule(TypeRuleMapper $mapper) {
@@ -26,6 +24,5 @@ class DateTimeType extends \Webforge\Types\ObjectType implements \Psc\Doctrine\E
   
   public function __construct() {
     parent::__construct(GClassAdapter::newGClass('Webforge\Common\DateTime\DateTime'));
-  }
-  
+  }  
 }

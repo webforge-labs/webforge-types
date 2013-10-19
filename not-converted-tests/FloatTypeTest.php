@@ -1,16 +1,16 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
- * @group class:Psc\Data\Type\FloatType
+ * @group class:Webforge\Types\FloatType
  */
 class FloatTypeTest extends TestCase {
   
   protected $floatType;
   
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\FloatType';
+    $this->chainClass = 'Webforge\Types\FloatType';
     parent::setUp();
     $this->floatType = new FloatType();
   }
@@ -19,4 +19,3 @@ class FloatTypeTest extends TestCase {
     $this->assertTypeMapsComponent('FloatField', $this->floatType);
   }
 }
-?>

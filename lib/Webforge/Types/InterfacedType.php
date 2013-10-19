@@ -1,6 +1,6 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
  * Ein Typ der ein Interface definiert, welches den Typ implementiert

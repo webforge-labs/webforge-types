@@ -4,18 +4,19 @@ namespace Webforge\Types;
 
 use Psc\Code\Generate\GClass;
 use Psc\Code\Code;
+use Webforge\Common\ClassInterface;
 
 class ObjectType extends Type implements ParameterHintedType, DoctrineExportableType {
   
   /**
-   * @var GClass
+   * @var ClassInterface
    */
   protected $class;
   
-  public function __construct(GClass $class = NULL) {
-    // alternativ könnten wir auch hier mit stdClass starten?
-    if (isset($class))
+  public function __construct(ClassInterface $class = NULL) {
+    if (isset($class)) {
       $this->setClass($class);
+    }
   }
 
   public function getName($context = self::CONTEXT_DEFAULT) {
@@ -39,16 +40,16 @@ class ObjectType extends Type implements ParameterHintedType, DoctrineExportable
   }
   
   /**
-   * @param Psc\Code\Generate\GClass $class
+   * @param Webforge\Common\ClassInterface $class
    * @chainable
    */
-  public function setClass(GClass $class = NULL) {
+  public function setClass(ClassInterface $class = NULL) {
     $this->class = $class;
     return $this;
   }
 
   /**
-   * @return Psc\Code\Generate\GClass
+   * @return ClassInterface
    */
   public function getClass() {
     return $this->class;
@@ -123,4 +124,3 @@ class ObjectType extends Type implements ParameterHintedType, DoctrineExportable
     return $this->getGClass()->hasInterface($FQN);
   }
 }
-?>

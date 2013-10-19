@@ -1,16 +1,16 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
- * @group class:Psc\Data\Type\PositiveIntegerType
+ * @group class:Webforge\Types\PositiveIntegerType
  */
 class PositiveIntegerTypeTest extends IntegerTypeTestCase {
   
   protected $positiveIntegerType;
   
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\PositiveIntegerType';
+    $this->chainClass = 'Webforge\Types\PositiveIntegerType';
     parent::setUp();
     $this->positiveIntegerType = new PositiveIntegerType();
   }
@@ -26,4 +26,3 @@ class PositiveIntegerTypeTest extends IntegerTypeTestCase {
   }
   
 }
-?>

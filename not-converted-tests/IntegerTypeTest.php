@@ -1,12 +1,11 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\IntegerType;
+use Webforge\Types\IntegerType;
 
 /**
- * @group class:Psc\Data\Type\IntegerType
+ * @group class:Webforge\Types\IntegerType
  */
 class IntegerTypeTest extends IntegerTypeTestCase {
 }
-?>

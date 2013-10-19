@@ -1,16 +1,16 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\BirthdayType;
+use Webforge\Types\BirthdayType;
 
 /**
- * @group class:Psc\Data\Type\BirthdayType
+ * @group class:Webforge\Types\BirthdayType
  */
 class BirthdayTypeTest extends TestCase {
 
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\BirthdayType';
+    $this->chainClass = 'Webforge\Types\BirthdayType';
     parent::setUp();
   }
   
@@ -18,4 +18,3 @@ class BirthdayTypeTest extends TestCase {
     $this->assertTypeMapsComponent('Psc\UI\Component\BirthdayPicker', new BirthdayType());
   }
 }
-?>

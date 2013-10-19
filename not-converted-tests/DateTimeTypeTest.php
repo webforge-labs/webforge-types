@@ -1,16 +1,16 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\DateTimeType;
+use Webforge\Types\DateTimeType;
 
 /**
- * @group class:Psc\Data\Type\DateTimeType
+ * @group class:Webforge\Types\DateTimeType
  */
 class DateTimeTypeTest extends TestCase {
 
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\DateTimeType';
+    $this->chainClass = 'Webforge\Types\DateTimeType';
     parent::setUp();
   }
 
@@ -22,4 +22,3 @@ class DateTimeTypeTest extends TestCase {
     $this->assertTypeMapsComponent('DateTimePicker', Type::create('DateTime'));
   }
 }
-?>

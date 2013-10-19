@@ -1,23 +1,22 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Code\Generate\GClass;
+use Webforge\Common\ClassInterface;
 
-abstract class InterfacedObjectType extends \Psc\Data\Type\ObjectType implements InterfacedType {
+abstract class InterfacedObjectType extends ObjectType implements InterfacedType {
 
-  public function setClass(GClass $class = NULL) {
+  public function setClass(ClassInterface $class = NULL) {
     if ($class === NULL) {
       throw new TypeException('Für InterfacedObjectType kann Parameter 1 von setClass nicht NULL sein');
     }
     
     try {
-      // das ist schneller als gClass::hasInterface
       if ($class->getReflection()->implementsInterface($this->getInterface())) {
         return parent::setClass($class);
       }
       
-    } catch (\ReflectionException $e) { }
+    } catch (\ReflectionException $e) {}
       
     throw new TypeException(
       sprintf("Die Klasse '%s' für den InterfacedObjectType muss das Interface: '%s' implementieren.", $class->getFQN(),$this->getInterface())
@@ -28,4 +27,3 @@ abstract class InterfacedObjectType extends \Psc\Data\Type\ObjectType implements
     return $this->getInterface(); // @TODO this fails to respect namespaceContext
   }
 }
-?>

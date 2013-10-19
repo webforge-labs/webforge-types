@@ -1,24 +1,24 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\CompositeType;
+use Webforge\Types\CompositeType;
 
 /**
- * @group class:Psc\Data\Type\CompositeType
+ * @group class:Webforge\Types\CompositeType
  */
 class CompositeTypeTest extends CompositeTypeTestCase {
   
   public function setUp() {
-    $this->chainClass = 'Psc\Data\Type\CompositeType';
+    $this->chainClass = 'Webforge\Types\CompositeType';
     $this->typeName = 'MyComposite';
   }
   
   public function testMyConstruct() {
-    $composite = new \Psc\Data\Type\MyCompositeType();
+    $composite = new \Webforge\Types\MyCompositeType();
     $composite = Type::create($this->typeName);
     
-    $compositeTyped = new \Psc\Data\Type\MyTypedCompositeType();
+    $compositeTyped = new \Webforge\Types\MyTypedCompositeType();
     $this->assertEquals('MyType',$compositeTyped->getPHPHint());
     
     return $composite;
@@ -48,8 +48,8 @@ class CompositeTypeTest extends CompositeTypeTestCase {
    * @depends testMyConstruct
    */
   public function testGetMyComponent($composite) {
-    $this->assertInstanceOf('Psc\Data\Type\StringType', $composite->getComponent(1));
-    $this->assertInstanceOf('Psc\Data\Type\IntegerType', $composite->getComponent(2));
+    $this->assertInstanceOf('Webforge\Types\StringType', $composite->getComponent(1));
+    $this->assertInstanceOf('Webforge\Types\IntegerType', $composite->getComponent(2));
     return $composite;
   }
 
@@ -58,8 +58,8 @@ class CompositeTypeTest extends CompositeTypeTestCase {
    */
   public function testSetMyComponents($composite) {
     $this->assertChainable($composite->setComponents(new IntegerType(), new StringType()));
-    $this->assertInstanceOf('Psc\Data\Type\IntegerType', $composite->getComponent(1));
-    $this->assertInstanceOf('Psc\Data\Type\StringType', $composite->getComponent(2));
+    $this->assertInstanceOf('Webforge\Types\IntegerType', $composite->getComponent(1));
+    $this->assertInstanceOf('Webforge\Types\StringType', $composite->getComponent(2));
     
     return $composite;
   }
@@ -102,4 +102,3 @@ class MyTypedCompositeType extends CompositeType {
   }
   
 }
-?>

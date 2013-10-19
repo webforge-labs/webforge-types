@@ -1,13 +1,16 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 use Psc\Code\Code;
 use Psc\Code\Generate\GClass;
+use Webforge\Common\ClassInterface;
+use InvalidArgumentException;
 
-class CollectionType extends \Psc\Data\Type\InterfacedObjectType implements MappedComponentType, TraversableType {
+class CollectionType extends \Webforge\Types\InterfacedObjectType implements MappedComponentType, TraversableType {
   
   const PSC_ARRAY_COLLECTION = 'Psc\Data\ArrayCollection';
+  const WEBFORGE_COLLECTION = 'Webforge\Collections\ArrayCollection';
   const DOCTRINE_ARRAY_COLLECTION = 'Doctrine\Common\Collections\ArrayCollection';
 
   /**
@@ -19,9 +22,12 @@ class CollectionType extends \Psc\Data\Type\InterfacedObjectType implements Mapp
    * @param const $implementation
    */
   public function __construct($implementation = NULL, Type $innerType = NULL) {
-    if (!($implementation instanceof GClass) && $implementation !== NULL) {
-      Code::value($implementation, self::PSC_ARRAY_COLLECTION, self::DOCTRINE_ARRAY_COLLECTION);
-      $implementation = new GClass($implementation);
+    if (!($implementation instanceof ClassInterface) && $implementation !== NULL) {
+      if ($implementation != self::PSC_ARRAY_COLLECTION && $implementation != self::DOCTRINE_ARRAY_COLLECTION && $implementation != self::WEBFORGE_COLLECTION) {
+         throw new InvalidArgumentException("implementation needs to be of _COLLECTION constant");
+      }
+
+      $implementation = GClassAdapter::newGClass($implementation);
     }
     
     parent::__construct($implementation);
@@ -35,7 +41,7 @@ class CollectionType extends \Psc\Data\Type\InterfacedObjectType implements Mapp
    * Collection zu Component-Mapping
    *
    */
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('ComboDropBox');
   }
   
@@ -48,7 +54,7 @@ class CollectionType extends \Psc\Data\Type\InterfacedObjectType implements Mapp
   }
   
   /**
-   * @return Psc\Data\Type\Type
+   * @return Webforge\Types\Type
    */
   public function getType() {
     if (!isset($this->type)) throw new NotTypedException('Kann den Type der Collection nicht zurückgeben.');
@@ -59,7 +65,7 @@ class CollectionType extends \Psc\Data\Type\InterfacedObjectType implements Mapp
   /**
    *
    * wird der Parameter NULL Übergeben ist der Array nicht mehr getyped
-   * @param Psc\Data\Type\Type|NULL
+   * @param Webforge\Types\Type|NULL
    */
   public function setType(Type $type = NULL) {
     $this->type = $type;
@@ -109,4 +115,3 @@ class CollectionType extends \Psc\Data\Type\InterfacedObjectType implements Mapp
     return $this;
   }
 }
-?>

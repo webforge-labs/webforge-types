@@ -1,11 +1,11 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\TextType;
+use Webforge\Types\TextType;
 
 /**
- * @group class:Psc\Data\Type\TextType
+ * @group class:Webforge\Types\TextType
  */
 class TextTypeTest extends TestCase {
 
@@ -13,4 +13,3 @@ class TextTypeTest extends TestCase {
     $this->assertTypeMapsComponent('any', new TextType());
   }
 }
-?>

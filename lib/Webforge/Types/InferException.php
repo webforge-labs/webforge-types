@@ -1,10 +1,9 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class InferException extends \Psc\Data\Type\Exception {
+class InferException extends \Webforge\Types\Exception {
   
   // die Value dessen Typ geraten werden sollte
   public $value;
 }
-?>

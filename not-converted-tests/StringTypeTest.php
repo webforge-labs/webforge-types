@@ -1,11 +1,11 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-use Psc\Data\Type\StringType;
+use Webforge\Types\StringType;
 
 /**
- * @group class:Psc\Data\Type\StringType
+ * @group class:Webforge\Types\StringType
  */
 class StringTypeTest extends TestCase {
 
@@ -16,4 +16,3 @@ class StringTypeTest extends TestCase {
     $this->assertTypeMapsComponent('TextField', $stringType);
   }
 }
-?>

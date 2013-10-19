@@ -1,9 +1,9 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
- * @group class:Psc\Data\Type\CodeType
+ * @group class:Webforge\Types\CodeType
  */
 class CodeTypeTest extends TestCase {
   
@@ -11,4 +11,3 @@ class CodeTypeTest extends TestCase {
     $this->assertTypeMapsComponent('CodeEditor', new CodeType());
   }
 }
-?>
