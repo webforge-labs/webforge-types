@@ -1,10 +1,11 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 use Psc\Code\Generate\GClass;
 use Psc\CMS\Labeler;
-use Psc\CMS\ComponentMapper;
+use Webforge\Types\Adapters\ComponentMapper;
+use Webforge\Types\Adapters\TypeRuleMapper;
 use Psc\Doctrine\ExportableType;
 
 /**

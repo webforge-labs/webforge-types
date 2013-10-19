@@ -1,6 +1,6 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
  * Das Interface Traversable Type verhält sich wie das Traversable SPL Interface:
@@ -20,4 +20,3 @@ interface TraversableType extends EnclosingType, DefaultValueType {
   public function isList();
   
 }
-?>

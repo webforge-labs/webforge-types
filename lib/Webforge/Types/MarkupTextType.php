@@ -1,11 +1,10 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class MarkupTextType extends \Psc\Data\Type\TextType {
+class MarkupTextType extends \Webforge\Types\TextType {
 
   public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('TextBox');
   }
 }
-?>

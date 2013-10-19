@@ -1,6 +1,6 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 interface DefaultValueType {
 
@@ -19,4 +19,3 @@ interface DefaultValueType {
    */
   public function hasScalarDefaultValue();
 }
-?>

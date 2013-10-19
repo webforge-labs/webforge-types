@@ -1,10 +1,10 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class PositiveSmallIntegerType extends \Psc\Data\Type\PositiveIntegerType implements MappedComponentType, \Psc\Doctrine\ExportableType {
+class PositiveSmallIntegerType extends \Webforge\Types\PositiveIntegerType implements MappedComponentType, \Psc\Doctrine\ExportableType {
   
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('SmallIntegerField');
   }
   
@@ -12,4 +12,3 @@ class PositiveSmallIntegerType extends \Psc\Data\Type\PositiveIntegerType implem
     return 'smallint';
   }
 }
-?>

@@ -24,7 +24,7 @@ abstract class Type {
    * @return GClass
    */
   public function getTypeClass() {
-    return new GClass(get_class($this));
+    return GClassAdapter::newGClass(get_class($this));
   }
   
   /**
@@ -72,12 +72,12 @@ abstract class Type {
       }
 
     } elseif ($fqn = Preg::qmatch($name, '/^Object<(.*)>$/')) {
-      return new ObjectType(new GClass($fqn));
+      return new ObjectType(GClassAdapter::newGClass($fqn));
 
     } elseif ($fqn = Preg::qmatch($name, '/^Collection<(.*)>$/')) {
       return new CollectionType(
         CollectionType::PSC_ARRAY_COLLECTION, 
-        new ObjectType(new GClass($fqn))
+        new ObjectType(GClassAdapter::newGClass($fqn))
       );
 
     } elseif (S::endsWith($name, '[]')) {

@@ -1,8 +1,10 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class FloatType extends \Psc\Data\Type\Type implements \Psc\Doctrine\ExportableType, \Psc\Data\Type\MappedComponentType, \Psc\Data\Type\ValidationType {
+use Webforge\Types\Adapters\TypeRuleMapper;
+
+class FloatType extends \Webforge\Types\Type implements \Psc\Doctrine\ExportableType, \Webforge\Types\MappedComponentType, \Webforge\Types\ValidationType {
 
   /**
    * @var bool
@@ -49,7 +51,7 @@ class FloatType extends \Psc\Data\Type\Type implements \Psc\Doctrine\ExportableT
     return $this->decimals;
   }
 
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     $floatField = $componentMapper->createComponent('FloatField');
     $floatField->setDecimals($this->decimals);
     return $floatField;

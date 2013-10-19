@@ -1,8 +1,10 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class PasswordType extends \Psc\Data\Type\StringType {
+use Webforge\Types\Adapters\TypeRuleMapper;
+
+class PasswordType extends \Webforge\Types\StringType {
   
   protected $algorithm;
   protected $minLength;
@@ -13,7 +15,7 @@ class PasswordType extends \Psc\Data\Type\StringType {
     parent::__construct();
   }
 
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('PasswordFields');
   }
 
@@ -36,8 +38,6 @@ class PasswordType extends \Psc\Data\Type\StringType {
   public function getMinLength() {
     return $this->minLength;
   }
-
-
   
   /**
    * @param string $algorithm
@@ -54,7 +54,4 @@ class PasswordType extends \Psc\Data\Type\StringType {
   public function getAlgorithm() {
     return $this->algorithm;
   }
-
-
 }
-?>

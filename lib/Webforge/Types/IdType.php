@@ -1,8 +1,10 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class IdType extends \Psc\Data\Type\PositiveIntegerType implements ValidationType, MappedComponentType {
+use Webforge\Types\Adapters\TypeRuleMapper;
+
+class IdType extends \Webforge\Types\PositiveIntegerType implements ValidationType, MappedComponentType {
   
   public function __construct() {
     parent::__construct();
@@ -13,7 +15,7 @@ class IdType extends \Psc\Data\Type\PositiveIntegerType implements ValidationTyp
     return $mapper->createRule('Id');
   }
   
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('IntegerField');
   }
 }

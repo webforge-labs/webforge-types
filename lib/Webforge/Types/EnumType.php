@@ -1,6 +1,8 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
+
+use Webforge\Types\Adapters\TypeRuleMapper;
 
 /**
  * Ein EnumType ist ein Type mit festgelegten Values die auf dem inneren Type ($valueType) basieren
@@ -18,7 +20,7 @@ class EnumType extends Type implements EnclosingType, MappedComponentType, Valid
   /**
    * Der Typ von dem die Werte des Enums sind
    *
-   * @var Psc\Data\Type\Type
+   * @var Webforge\Types\Type
    */
   protected $valueType;
   
@@ -35,7 +37,7 @@ class EnumType extends Type implements EnclosingType, MappedComponentType, Valid
   /**
    * @return Psc\CMS\Component
    */
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     $selectBox = $componentMapper->createComponent('SelectBox');
     $selectBox->dpi($this->getValues()); // wir überlassen der componente das Labeling
     // bei DCEnumType haben wir das im Type selbst gemacht - weis nicht so recht
@@ -72,7 +74,7 @@ class EnumType extends Type implements EnclosingType, MappedComponentType, Valid
   }
   
   /**
-   * @return Psc\Data\Type\Type
+   * @return Webforge\Types\Type
    * @throws NotTypedException wenn der Type nicht gesetzt ist
    */
   public function getType() {
@@ -82,7 +84,7 @@ class EnumType extends Type implements EnclosingType, MappedComponentType, Valid
   /**
    * 
    * wird der Parameter NULL Übergeben ist der Type nicht mehr getyped
-   * @param Psc\Data\Type\Type|NULL
+   * @param Webforge\Types\Type|NULL
    */
   public function setType(Type $type = NULL) {
     throw new \Psc\Exception('Value Type ist immutable und kann nicht gesetzt werden');

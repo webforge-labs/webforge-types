@@ -1,10 +1,13 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class StringType extends \Psc\Data\Type\Type implements \Psc\Doctrine\ExportableType, \Psc\Data\Type\MappedComponentType, \Psc\Data\Type\ValidationType, WalkableHintType {
+use Webforge\Types\Adapters\TypeRuleMapper;
+use Webforge\Types\Adapters\ComponentMapper;
 
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+class StringType extends Type implements DoctrineExportableType, MappedComponentType, ValidationType, WalkableHintType {
+
+  public function getMappedComponent(ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('TextField');
   }
   
@@ -20,4 +23,3 @@ class StringType extends \Psc\Data\Type\Type implements \Psc\Doctrine\Exportable
     return $mapper->createRule('Nes');
   }
 }
-?>

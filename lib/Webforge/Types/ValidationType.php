@@ -2,6 +2,8 @@
 
 namespace Webforge\Types;
 
+use Webforge\Types\Adapters\TypeRuleMapper;
+
 interface ValidationType {
   
   /**

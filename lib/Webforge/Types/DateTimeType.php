@@ -1,14 +1,15 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 use Psc\Code\Generate\GClass;
+use Webforge\Types\Adapters\TypeRuleMapper;
 
 /**
  *
  * Änderungen: siehe auch class DateType
  */
-class DateTimeType extends \Psc\Data\Type\ObjectType implements \Psc\Doctrine\ExportableType, MappedComponentType, ValidationType {
+class DateTimeType extends \Webforge\Types\ObjectType implements \Psc\Doctrine\ExportableType, MappedComponentType, ValidationType {
   
   public function getDoctrineExportType() {
     return 'PscDateTime';
@@ -19,12 +20,12 @@ class DateTimeType extends \Psc\Data\Type\ObjectType implements \Psc\Doctrine\Ex
     return $mapper->createRule('DateTime');
   }
 
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('DateTimePicker');
   }
   
   public function __construct() {
-    parent::__construct(new GClass('Webforge\Common\DateTime\DateTime'));
+    parent::__construct(GClassAdapter::newGClass('Webforge\Common\DateTime\DateTime'));
   }
   
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class SmallIntegerType extends \Psc\Data\Type\IntegerType implements MappedComponentType, \Psc\Doctrine\ExportableType {
+class SmallIntegerType extends \Webforge\Types\IntegerType implements MappedComponentType, \Psc\Doctrine\ExportableType {
   
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('SmallIntegerField');
   }
   
@@ -12,4 +12,3 @@ class SmallIntegerType extends \Psc\Data\Type\IntegerType implements MappedCompo
     return 'smallint';
   }
 }
-?>

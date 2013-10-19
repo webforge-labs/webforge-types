@@ -1,6 +1,8 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
+
+use Doctrine\DBAL\Types\Type as DoctrineType;
 
 /**
  * Der Typ für einen Array
@@ -16,13 +18,13 @@ namespace Psc\Data\Type;
  * sonst hätten wir: FixedLengthArray, TypedArray, DimensionArray, MixedTypedArray etc etc (das wären ganz schön viele Klassen)
  * und: wir könnten nicht "zwischen den Klassen" hin und herwechseln.
  */
-class ArrayType extends Type implements TraversableType, \Psc\Doctrine\ExportableType, ParameterHintedType {
+class ArrayType extends Type implements TraversableType, DoctrineExportableType, ParameterHintedType {
   
   /**
    * Der Typ der Elemente im Array
    * 
    * kann NULL sein, dann ist der Array nicht getyped
-   * @var Psc\Data\Type\Type|NULL
+   * @var Webforge\Types\Type|NULL
    */
   protected $type;
   
@@ -44,17 +46,17 @@ class ArrayType extends Type implements TraversableType, \Psc\Doctrine\Exportabl
   }
   
   /**
-   * @return Psc\Data\Type\Type
+   * @return Webforge\Types\Type
    */
   public function getType() {
-    if (!isset($this->type)) throw new ArrayNotTypedException('Kann den Type des ArrayType nicht zurückgeben.');
+    if (!isset($this->type)) throw new ArrayNotTypedException('Array is not typed. I cannot return the type.');
     return $this->type;
   }
   
   /**
    * 
    * wird der Parameter NULL Übergeben ist der Array nicht mehr getyped
-   * @param Psc\Data\Type\Type|NULL
+   * @param Webforge\Types\Type|NULL
    */
   public function setType(Type $type = NULL) {
     $this->type = $type;
@@ -62,7 +64,7 @@ class ArrayType extends Type implements TraversableType, \Psc\Doctrine\Exportabl
   }
   
   public function getDoctrineExportType() {
-    return \Doctrine\DBAL\Types\Type::TARRAY;
+    return DoctrineType::TARRAY;
   }
   
   public function getDefaultValue() {
@@ -102,4 +104,3 @@ class ArrayType extends Type implements TraversableType, \Psc\Doctrine\Exportabl
     return NULL;
   }
 }
-?>

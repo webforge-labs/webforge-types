@@ -1,6 +1,6 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
  * Ein EnclosingType hat einen "innerType" der mit getType zurückgegeben wird
@@ -20,7 +20,7 @@ interface EnclosingType {
   public function isTyped();
   
   /**
-   * @return Psc\Data\Type\Type
+   * @return Webforge\Types\Type
    * @throws NotTypedException wenn der Type nicht gesetzt ist
    */
   public function getType();
@@ -28,8 +28,7 @@ interface EnclosingType {
   /**
    *
    * wird der Parameter NULL Übergeben ist der Type nicht mehr getyped
-   * @param Psc\Data\Type\Type|NULL
+   * @param Webforge\Types\Type|NULL
    */
   public function setType(Type $type = NULL);
 }
-?>

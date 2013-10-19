@@ -1,6 +1,8 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
+
+use Webforge\Types\Adapters\ComponentMapper;
 
 interface MappedComponentType {
 
@@ -11,7 +13,6 @@ interface MappedComponentType {
    * 
    * @return Psc\CMS\Component
    */
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper);
+  public function getMappedComponent(ComponentMapper $componentMapper);
   
 }
-?>

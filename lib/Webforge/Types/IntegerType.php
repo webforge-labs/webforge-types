@@ -1,8 +1,9 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 use Psc\Form\IntegerValidatorRule;
+use Webforge\Types\Adapters\TypeRuleMapper;
 
 /**
  * Der type für eine Ganzzahl
@@ -21,7 +22,7 @@ use Psc\Form\IntegerValidatorRule;
  *
  * z. B. Eine AutoIncrement-ID in der Datenbank ist ein PositiveInteger mit $zero === FALSE
  */
-class IntegerType extends \Psc\Data\Type\Type implements ValidationType, \Psc\Doctrine\ExportableType, MappedComponentType {
+class IntegerType extends \Webforge\Types\Type implements ValidationType, \Psc\Doctrine\ExportableType, MappedComponentType {
   
   /**
    * @var bool
@@ -59,7 +60,7 @@ class IntegerType extends \Psc\Data\Type\Type implements ValidationType, \Psc\Do
    *
    * @return Psc\CMS\Component
    */
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('IntegerField');
   }
 
