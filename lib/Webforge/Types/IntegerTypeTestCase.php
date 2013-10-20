@@ -1,6 +1,8 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
+
+use Webforge\Types\Test\TestCase;
 
 class IntegerTypeTestCase extends TestCase {
 
@@ -26,6 +28,4 @@ class IntegerTypeTestCase extends TestCase {
     $type->setZero(TRUE);
     $this->assertTrue($type->hasZero());
   }
-
 }
-?>

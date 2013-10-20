@@ -34,13 +34,13 @@ class InterfacedObjectTypeTest extends \Webforge\Types\Test\Base {
   public function testSetClassImplementsWrongInterfaceIsNotAllowed() {
     $this->type->expects($this->any())->method('getInterface')->will($this->returnValue('Psc\Unknown\Interface'));
     
-    $this->type->setClass(new \Psc\Code\Generate\GClass('Webforge\Types\LinkType'));
+    $this->type->setClass(GClassAdapter::newGClass('Webforge\Types\LinkType'));
   }
 
   public function testSetClassImplementsRightInterface() {
     $this->type->expects($this->any())->method('getInterface')->will($this->returnValue('Webforge\Types\InterfacedType'));
     
-    $this->type->setClass(new \Psc\Code\Generate\GClass('Webforge\Types\LinkType'));
+    $this->type->setClass(GClassAdapter::newGClass('Webforge\Types\LinkType'));
   }
 
   public function createInterfacedObjectType() {

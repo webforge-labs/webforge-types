@@ -149,6 +149,7 @@ abstract class Type {
 
   /**
    * @return string bei Klassen ist das der FQN (ohne \ davor)
+   * // where is this used?
    */
   public function getPHPHint() {
     if ($this instanceof \Webforge\Types\ArrayType) {

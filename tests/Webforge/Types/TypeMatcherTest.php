@@ -40,8 +40,7 @@ class TypeMatcherTest extends \Webforge\Types\Test\Base {
     $match(7,'Integer');
     $match(array(1,2,3),'Array');
     $match((object) array(1,2,3), 'Object');
-    $match(new \Psc\DataInput, new ObjectType(GClassAdapter::newGClass('Psc\DataInput')));
-    
+
     $fail(0, 'String');
     $fail('s', 'Integer');
     
@@ -53,9 +52,17 @@ class TypeMatcherTest extends \Webforge\Types\Test\Base {
     
     return $tests;
   }
+
+  public function testObjectCanBeMatched() {
+    // dont pass this in provider because phpunit tries to debug $this as string and this will be very slow ..
+    $this->testMatching(
+      TRUE,
+      $this,
+      new ObjectType(GClassAdapter::newGClass(__CLASS__))
+    );
+  }
   
   public function createTypeMatcher() {
     return new TypeMatcher();
   }
 }
-?>

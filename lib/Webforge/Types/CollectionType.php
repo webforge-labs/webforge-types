@@ -25,12 +25,15 @@ class CollectionType extends \Webforge\Types\InterfacedObjectType implements Map
    */
   public function __construct($implementation = NULL, Type $innerType = NULL) {
     if (!($implementation instanceof ClassInterface) && $implementation !== NULL) {
+      
       if ($implementation != self::PSC_ARRAY_COLLECTION && $implementation != self::DOCTRINE_ARRAY_COLLECTION && $implementation != self::WEBFORGE_COLLECTION) {
          throw new InvalidArgumentException("implementation needs to be of _COLLECTION constant");
       }
 
-      $this->implementation = $implementation = GClassAdapter::newGClass($implementation);
+      $implementation = GClassAdapter::newGClass($implementation);
     }
+
+    $this->implementation = $implementation;
     
     parent::__construct($implementation);
     

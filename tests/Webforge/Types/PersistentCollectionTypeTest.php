@@ -13,10 +13,10 @@ class PersistentCollectionTypeTest extends \Webforge\Types\Test\Base {
   }
   
   public function testConstruct() {
-    $pct = new PersistentCollectionType(new \Psc\Code\Generate\GClass('Psc\Doctrine\TestEntities\Tag'));
+    $pct = new PersistentCollectionType(GClassAdapter::newGClass('Psc\Doctrine\TestEntities\Tag'));
     $this->assertInstanceOf('Webforge\Types\CollectionType', $pct);
     
     $this->assertInstanceOf('Webforge\Types\ObjectType', $pct->getType());
-    $this->assertEquals('Psc\Doctrine\TestEntities\Tag',$pct->getType()->getClass()->getFQN());
+    $this->assertEquals('Psc\Doctrine\TestEntities\Tag', $pct->getType()->getClass()->getFQN());
   }
 }

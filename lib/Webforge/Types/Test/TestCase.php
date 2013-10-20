@@ -25,12 +25,12 @@ class TestCase extends \Webforge\Code\Test\Base {
   }
   
   protected function expectTypeMapsComponent($class, Type $type) {
-    $class = ClassUtil::expandNamespace($class, 'Psc\UI\Component');
     $component = m::mock('Webforge\Types\Adapters\Component');
 
     $this->mapper->shouldReceive('createComponent')->once()->with(m::on(function($componentName) use ($class) {
       if ($class === 'any') return TRUE;
 
+      $class = ClassUtil::expandNamespace($class, 'Psc\UI\Component');
       $componentClass = ClassUtil::expandNamespace($componentName, 'Psc\UI\Component');
 
       return $componentClass === $class;

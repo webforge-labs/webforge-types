@@ -4,7 +4,7 @@ namespace Webforge\Types;
 
 class MarkupTextType extends \Webforge\Types\TextType {
 
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('TextBox');
   }
 }

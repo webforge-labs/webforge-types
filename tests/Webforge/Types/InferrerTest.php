@@ -29,9 +29,10 @@ class InferrerTest extends \Webforge\Types\Test\Base {
     $tests[] = array(true, new BooleanType);
     $tests[] = array(array('eins','zwei',12,'schwierig'), new ArrayType);
     $tests[] = array(new \stdClass, new ObjectType(GClassAdapter::newGClass('stdClass')));
-    $tests[] = array($collection = new \Doctrine\Common\Collections\ArrayCollection(array('some','inner','items')),
-                     new CollectionType(CollectionType::DOCTRINE_ARRAY_COLLECTION)
-                     );
+    $tests[] = array(
+      $collection = new \Doctrine\Common\Collections\ArrayCollection(array()),
+      new CollectionType(CollectionType::DOCTRINE_ARRAY_COLLECTION)
+    );
     
     return $tests;
   }

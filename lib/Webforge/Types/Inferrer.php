@@ -2,6 +2,8 @@
 
 namespace Webforge\Types;
 
+use Webforge\Common\Util;
+
 class Inferrer {
   
   /**
@@ -24,7 +26,7 @@ class Inferrer {
       return new MixedType();
     }
 
-    $e = new InferException('Typ konnte nicht geraten werden: '.Code::varInfo($value));
+    $e = new InferException('Typ konnte nicht geraten werden: '.Util::varInfo($value));
     $e->value = $value;
     throw $e;
   }

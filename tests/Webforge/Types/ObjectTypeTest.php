@@ -38,7 +38,7 @@ class ObjectTypeTest extends \Webforge\Types\Test\Base {
     $type = new ObjectType();
     
     $this->assertChainable($type->setClass($nc = GClassAdapter::newGClass('Psc\Data\Set')));
-    $this->assertInstanceOf('Psc\Code\Generate\GClass',$gc = $type->getClass());
+    $this->assertInstanceOf('Webforge\Common\ClassInterface',$gc = $type->getClass());
     $this->assertSame($nc, $gc);
   }
   

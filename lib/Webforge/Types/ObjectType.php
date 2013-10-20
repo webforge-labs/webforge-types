@@ -72,38 +72,47 @@ class ObjectType extends Type implements ParameterHintedType, DoctrineExportable
   public function getPHPType() {
     return isset($this->class) ? $this->class->getFQN() : 'object';
   }
-  
+
   /**
-   * wenn die Klasse gesetzt ist, wird der Name der Klasse mit \ Davor zurückgegeben (only if namespaceContext is === NULL)
+   * Returns the PHPHint as php code for the Object
+   * 
+   * if class is not known \stdClass is returned
+   * 
+   * e.g. encodeJSON(\stdClass $object)
+   * 
+   * if class is known and namespace context is the same as the class only the relative className will be returned
+   * 
+   * e.g. setPerson(Person $person)
+   * 
+   * if class is known and namespace context is not set the full qualified name with \ in front will be returned
+   * 
+   * e.g. setPerson(\ACME\Entities\Person $person)
    */
   public function getPHPHint($namespaceContext = NULL) {
-    if (isset($this->class)) {
-      if (isset($namespaceContext)) {
-        if (trim($this->class->getNamespace(),'\\') === trim($namespaceContext,'\\')) {
-          return $this->class->getClassName();
-        } else {
-          return $this->class->getFQN();
-        }
-      }
+    if (!isset($this->class)) {
+      return '\stdClass';
+    }
+
+    if (isset($namespaceContext) && trim($this->class->getNamespace(),'\\') === trim($namespaceContext,'\\')) {
       return $this->class->getName();
     }
-    
-    return '\stdClass';
+
+    return '\\'.$this->class->getFQN();
   }
   
   /**
    * @inheritdoc
    */
   public function getParameterHint($useFQN = TRUE) {
-    if (isset($this->class)) {
-      if ($useFQN) {
-        return '\\'.$this->class->getFQN();
-      } else {
-        return $this->class->getClassName();
-      }
+    if (!isset($this->class)) {
+      return $useFQN ? '\\stdClass' : 'stdClass';
     }
-    
-    return $useFQN ? '\\stdClass' : 'stdClass';
+
+    if ($useFQN) {
+      return '\\'.$this->class->getFQN();
+    } else {
+      return $this->class->getName();
+    }
   }
   
   /**

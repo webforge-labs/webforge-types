@@ -1,6 +1,6 @@
 <?php
 
-namespace Psc\Data\Type\Interfaces;
+namespace Webforge\Types\Interfaces;
 
 interface Link {
   
@@ -19,4 +19,3 @@ interface Link {
   public function getURI();
   
 }
-?>
