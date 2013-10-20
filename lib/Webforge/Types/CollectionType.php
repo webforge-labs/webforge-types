@@ -78,7 +78,7 @@ class CollectionType extends \Webforge\Types\InterfacedObjectType implements Map
    * @return Webforge\Types\Type
    */
   public function getType() {
-    if (!isset($this->type)) throw new NotTypedException('Kann den Type der Collection nicht zurückgeben.');
+    if (!isset($this->type)) throw new NotTypedException('Cannot return Type of Collection. Because its not set.');
     return $this->type;
   }
   

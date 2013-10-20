@@ -3,7 +3,7 @@
 namespace Webforge\Types;
 
 use Webforge\Types\Exporter;
-use Webforge\Types\Adapters\CodeWriter;
+use Webforge\Common\CodeWriter;
 use Webforge\Common\ClassInterface;
 
 /**

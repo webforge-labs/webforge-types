@@ -11,8 +11,7 @@
   "minimum-stability":"dev",
   "autoload":{
     "psr-0":{
-      "Webforge\\Types":["lib/", "tests/"],
-      "Webforge\\Common": ["D:\\www\\webforge-common\\lib"]
+      "Webforge\\Types":["lib/", "tests/"]
     }
   },
   "require":{

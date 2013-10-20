@@ -1,6 +1,6 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 use Webforge\Common\ArrayUtil AS A;
 
@@ -48,7 +48,7 @@ abstract class DynamicEnumType extends EnumType {
    * Wird decoraten die Component wenn sie LabelerAware ist mit unseren Labels die wir aus den getDynamicValues erhalten, wenn der zurückgegebene array assoziativ ist
    * @return Psc\CMS\Component
    */
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     $component = parent::getMappedComponent($componentMapper); // ruft this getValues() auf, somit ist sichergestellt, dass valueLabels gesetzt ist
     
     if ($component instanceof \Psc\CMS\LabelerAware) {
@@ -61,4 +61,3 @@ abstract class DynamicEnumType extends EnumType {
     return $component;
   }
 }
-?>

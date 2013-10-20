@@ -1,7 +1,6 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class ConversionException extends \Psc\Data\Type\Exception {
+class ConversionException extends \Webforge\Types\Exception {
 }
-?>
