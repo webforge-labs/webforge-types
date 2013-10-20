@@ -15,7 +15,7 @@ use Webforge\Types\Adapters\TypeRuleMapper;
  * alle weiteren Eigenschaften des EnumTypes werden durch den valueType bestimmt. Das liegt daran, weil der EnumType nur eine Einschränkung des Universums des ValueTypes ist
  * der EnumType ist also ein TemplateType für ValueType (so ists glaub ich im C jargon)
  */
-class EnumType extends Type implements EnclosingType, MappedComponentType, ValidationType, \Psc\Doctrine\ExportableType, WalkableHintType {
+class EnumType extends Type implements EnclosingType, MappedComponentType, ValidationType, DoctrineExportableType, WalkableHintType {
 
   /**
    * Der Typ von dem die Werte des Enums sind
@@ -87,7 +87,7 @@ class EnumType extends Type implements EnclosingType, MappedComponentType, Valid
    * @param Webforge\Types\Type|NULL
    */
   public function setType(Type $type = NULL) {
-    throw new \Psc\Exception('Value Type ist immutable und kann nicht gesetzt werden');
+    throw new Exception('Value Type ist immutable und kann nicht gesetzt werden');
   }
   
   /**
@@ -106,4 +106,3 @@ class EnumType extends Type implements EnclosingType, MappedComponentType, Valid
     return $this->values;
   }
 }
-?>

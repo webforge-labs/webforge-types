@@ -1,12 +1,11 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
 /**
  * Ein Bild in Binärform / Stringform
  *
  * jedoch nicht /path/to/image/sources/bild.jpg
  */
-class ImageType extends \Psc\Data\Type\StringType {
+class ImageType extends StringType {
 }
-?>

@@ -1,8 +1,8 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class CompositeTypeTestCase extends \Psc\Code\Test\Base {
+class CompositeTypeTestCase extends \Webforge\Types\Test\Base {
   
   protected $typeName;
   
@@ -21,8 +21,8 @@ class CompositeTypeTestCase extends \Psc\Code\Test\Base {
     
     // ein composite besteht aus mindestens 2 Componenten, diese müssen im Constructor mit setComposites() deklariert werden
     try {
-      $this->assertInstanceOf('Psc\Data\Type\Type', $composite->getComponent(1));
-      $this->assertInstanceOf('Psc\Data\Type\Type', $composite->getComponent(2));
+      $this->assertInstanceOf('Webforge\Types\Type', $composite->getComponent(1));
+      $this->assertInstanceOf('Webforge\Types\Type', $composite->getComponent(2));
     } catch (\OutOfBoundsException $e) {
       $this->fail($e->getMessage()); // nicht throwen, wir sind ein testcase und eine exception ist ein error kein failure
     }
@@ -46,6 +46,4 @@ class CompositeTypeTestCase extends \Psc\Code\Test\Base {
     $count = count($composite->getComponents());
     $composite->getComponent(0);
   }
-  
 }
-?>

@@ -19,10 +19,10 @@ class EntityTypeTest extends \Webforge\Types\Test\TestCase {
   }
   
   public function testAcceptance() {
-    $this->assertTypeMapsComponent('ComboBox',$this->entityType);
+    $this->assertTypeMapsComponent('ComboBox', $this->entityType);
   }
 
   public function testTypeMapsSingleImageComponent() {
-    $this->assertTypeMapsComponent('SingleImage',$this->imageEntityType);
+    $this->assertTypeMapsComponent('SingleImage', $this->imageEntityType);
   }
 }

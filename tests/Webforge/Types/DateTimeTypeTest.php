@@ -4,9 +4,6 @@ namespace Webforge\Types;
 
 use Webforge\Types\DateTimeType;
 
-/**
- * @group class:Webforge\Types\DateTimeType
- */
 class DateTimeTypeTest extends \Webforge\Types\Test\TestCase {
 
   public function setUp() {

@@ -118,9 +118,10 @@ class ObjectType extends Type implements ParameterHintedType, DoctrineExportable
   }
 
   public function implementsInterface($FQN) {
-    if (!($FQN instanceof GClass)) {
+    if (!($FQN instanceof ClassInterface)) {
       $FQN = GClassAdapter::newGClass($FQN);
     }
-    return $this->getGClass()->hasInterface($FQN);
+    
+    return $this->getGClass()->getReflection()->implementsInterface($FQN);
   }
 }

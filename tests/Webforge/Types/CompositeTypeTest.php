@@ -4,9 +4,6 @@ namespace Webforge\Types;
 
 use Webforge\Types\CompositeType;
 
-/**
- * @group class:Webforge\Types\CompositeType
- */
 class CompositeTypeTest extends CompositeTypeTestCase {
   
   public function setUp() {
@@ -26,16 +23,20 @@ class CompositeTypeTest extends CompositeTypeTestCase {
   
   public function testDebugReturnsAStringWithAllComponentsAsName() {
     $composite = new CompositeType();
-    $composite->setComponents(Type::create('String'), Type::create('Object', new \Psc\Code\Generate\GClass('Psc\Code\AST\LParameter')));
+    $composite->setComponents(
+      Type::create('String'), 
+      Type::create('Object', GClassAdapter::newGClass(__CLASS__))
+    );
     
-    $this->assertEquals('String|Psc\Code\AST\LParameter', $composite->getName(Type::CONTEXT_DEBUG));
+    $this->assertEquals('String|'.__CLASS__, $composite->getName(Type::CONTEXT_DEBUG));
   }
   
   public function testAddComponent() {
     $composite1 = new CompositeType();
-    $composite1->setComponents($t1 = Type::create('String'),
-                               $t2 = Type::create('Object', new \Psc\Code\Generate\GClass('Psc\Code\AST\LParameter'))
-                              );
+    $composite1->setComponents(
+      $t1 = Type::create('String'),
+      $t2 = Type::create('Object', GClassAdapter::newGClass(__CLASS__))
+    );
     
     $composite2 = new CompositeType();
     $composite2->addComponent($t1);
@@ -99,6 +100,6 @@ class MyTypedCompositeType extends CompositeType {
   
   protected function defineHint() {
     $this->phpHint = 'MyType';
-  }
-  
+  }  
+
 }

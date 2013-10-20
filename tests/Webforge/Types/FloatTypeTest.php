@@ -16,6 +16,9 @@ class FloatTypeTest extends \Webforge\Types\Test\TestCase {
   }
   
   public function testAcceptance() {
-    $this->assertTypeMapsComponent('FloatField', $this->floatType);
+    $componentMock = $this->expectTypeMapsComponent('FloatField', $this->floatType);
+    $componentMock->shouldReceive('setDecimals')->once();
+
+    $this->floatType->getMappedComponent($this->mapper);
   }
 }

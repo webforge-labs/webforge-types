@@ -1,11 +1,10 @@
 <?php
 
-namespace Psc\Data\Type;
+namespace Webforge\Types;
 
-class EmailType extends \Psc\Data\Type\StringType implements MappedComponentType {
+class EmailType extends StringType implements MappedComponentType {
   
-  public function getMappedComponent(\Psc\CMS\ComponentMapper $componentMapper) {
+  public function getMappedComponent(\Webforge\Types\Adapters\ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('EmailField');
   }
 }
-?>

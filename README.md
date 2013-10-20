@@ -15,4 +15,4 @@ A simple, extendable type system for php
   - ObjectType::implementsInterface() // uses GClass not ClassInterface
   - ObjectType::getPHPHint() ?
 
-  - CollectionTypeTest::testImplementationConstruct can only be testet in psc-cms
+  - DCEnumTypeTest can only be testet in psc-cms

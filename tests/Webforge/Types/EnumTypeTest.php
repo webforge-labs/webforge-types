@@ -2,9 +2,6 @@
 
 namespace Webforge\Types;
 
-/**
- * @group class:Webforge\Types\EnumType
- */
 class EnumTypeTest extends \Webforge\Types\Test\TestCase {
   
   protected $enumType;
@@ -22,11 +19,14 @@ class EnumTypeTest extends \Webforge\Types\Test\TestCase {
   }
   
   public function testComponentMapping() {
-    $this->assertTypeMapsComponent('Psc\UI\Component\SelectBox', $this->enumType);
+    $componentMock = $this->expectTypeMapsComponent('Psc\UI\Component\SelectBox', $this->enumType);
+    $componentMock->shouldReceive('dpi')->once()->with(array('v1', 'v2'));
+
+    $this->enumType->getMappedComponent($this->mapper);
   }
   
   public function testSetTypeIsNotAllowed() {
-    $this->setExpectedException('Psc\Exception');
+    $this->setExpectedException(__NAMESPACE__.'\Exception');
     $this->enumType->setType(Type::create('String'));
   }
 }

@@ -4,7 +4,7 @@ namespace Webforge\Types;
 
 use Webforge\Types\Adapters\TypeRuleMapper;
 
-class FloatType extends \Webforge\Types\Type implements \Psc\Doctrine\ExportableType, \Webforge\Types\MappedComponentType, \Webforge\Types\ValidationType {
+class FloatType extends Type implements DoctrineExportableType, MappedComponentType, ValidationType {
 
   /**
    * @var bool
@@ -73,4 +73,3 @@ class FloatType extends \Webforge\Types\Type implements \Psc\Doctrine\Exportable
     return '[Type:'.$this->getTypeClass()->getFQN().' Zero:'.($this->hasZero() ? 'true' : 'false').']';
   }
 }
-?>

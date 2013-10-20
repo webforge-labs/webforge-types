@@ -2,11 +2,6 @@
 
 namespace Webforge\Types;
 
-use Psc\Code\Generate\GClass;
-
-/**
- * @group class:Webforge\Types\DCEnumType
- */
 class DCEnumTypeTest extends \Webforge\Types\Test\TestCase {
   
   protected $dCEnumType;
@@ -28,7 +23,7 @@ class DCEnumTypeTest extends \Webforge\Types\Test\TestCase {
   }
   
   public function testRegisterType() {
-    \Doctrine\DBAL\Types\Type::addType('test_speakerType', $this->gClass->getFQN());    
+    \Doctrine\DBAL\Types\Type::addType('test_speakerType', $this->gClass->getFQN());
   }
   
   public function testAcceptance() {
