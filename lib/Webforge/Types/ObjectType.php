@@ -131,6 +131,10 @@ class ObjectType extends Type implements ParameterHintedType, DoctrineExportable
       $FQN = GClassAdapter::newGClass($FQN);
     }
     
-    return $this->getGClass()->getReflection()->implementsInterface($FQN);
+    try {
+      return $this->getGClass()->getReflection()->implementsInterface((string) $FQN);
+    } catch (\ReflectionException $e) {
+      throw new Exception('Cannot reflect class: '.$this->getGClass().' '.$e->getMessage());
+    }
   }
 }

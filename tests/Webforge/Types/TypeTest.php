@@ -12,7 +12,7 @@ class TypeTest extends \Webforge\Code\Test\Base {
   }
 
   public function testTypeHasANameWithoutTypeAtTheEnd() {
-    $this->assertEquals('CustomString',$this->type->getName());
+    $this->assertEquals('CustomString', $this->type->getName());
   }
 
   public function testCreatesAFlyWeightWithJustTypeName() {

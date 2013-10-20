@@ -2,5 +2,5 @@
 
 namespace Webforge\Types\Adapters;
 
-class Component {
+interface Component {
 }
