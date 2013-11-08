@@ -19,4 +19,3 @@ class IdType extends \Webforge\Types\PositiveIntegerType implements ValidationTy
     return $componentMapper->createComponent('IntegerField');
   }
 }
-?>

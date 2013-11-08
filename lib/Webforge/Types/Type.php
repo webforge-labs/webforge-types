@@ -80,7 +80,7 @@ abstract class Type {
 
     } elseif ($fqn = Preg::qmatch($name, '/^Collection<(.*)>$/')) {
       return new CollectionType(
-        CollectionType::PSC_ARRAY_COLLECTION, 
+        class_exists('Psc\Data\ArrayCollection') ? CollectionType::PSC_ARRAY_COLLECTION : CollectionType::WEBFORGE_COLLECTION, 
         new ObjectType(GClassAdapter::newGClass($fqn))
       );
 

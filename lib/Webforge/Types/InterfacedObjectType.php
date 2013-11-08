@@ -19,7 +19,7 @@ abstract class InterfacedObjectType extends ObjectType implements InterfacedType
     } catch (\ReflectionException $e) {}
       
     throw new TypeException(
-      sprintf("Die Klasse '%s' für den InterfacedObjectType muss das Interface: '%s' implementieren.", $class->getFQN(),$this->getInterface())
+      sprintf("The Class '%s' for %s has to implement: '%s'.", $class->getFQN(), get_class($this), $this->getInterface())
     );
   }
   
