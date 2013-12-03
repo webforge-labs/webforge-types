@@ -9,7 +9,14 @@ use Webforge\Types\BooleanType;
  */
 class BooleanTypeTest extends \Webforge\Types\Test\Base {
 
-  public function testConstruct() {
-    return new BooleanType();
+  protected $type;
+
+  public function setUp() {
+    $this->type = new BooleanType();
+    parent::setUp();
+  }
+
+  public function testImplementsDoctrineExportableType() {
+    $this->assertInstanceOf('Webforge\Types\DoctrineExportableType', $this->type);
   }
 }

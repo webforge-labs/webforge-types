@@ -23,6 +23,5 @@ class PositiveIntegerTypeTest extends IntegerTypeTestCase {
   
   public function testMapsComponent() {
     $this->assertTypeMapsComponent('any', $this->positiveIntegerType);
-  }
-  
+  }  
 }
