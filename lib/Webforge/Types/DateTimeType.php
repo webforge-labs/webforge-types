@@ -11,7 +11,7 @@ use Webforge\Types\Adapters\TypeRuleMapper;
 class DateTimeType extends \Webforge\Types\ObjectType implements DoctrineExportableType, MappedComponentType, ValidationType {
   
   public function getDoctrineExportType() {
-    return 'PscDateTime';
+    return 'WebforgeDateTime';
   }
   
   public function getValidatorRule(TypeRuleMapper $mapper) {

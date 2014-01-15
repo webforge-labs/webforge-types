@@ -11,6 +11,10 @@ class DateTimeTypeTest extends \Webforge\Types\Test\TestCase {
     parent::setUp();
   }
 
+  public function testDoctrineExportableType() {
+    $this->assertEquals('WebforgeDateTime', Type::create('DateTime')->getDoctrineExportType());
+  }
+
   public function testIsAObjectTypeForDateTime() {
     $this->assertObjectType('Webforge\Common\DateTime\DateTime', Type::create('DateTime'));
   }
