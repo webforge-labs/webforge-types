@@ -15,10 +15,10 @@
     }
   },
   "require":{
-    "webforge/common": ">= 1.5.0",
-    "satooshi/php-coveralls": "dev-master"
+    "webforge/common": ">= 1.5.0"
   },
   "require-dev": {
+    "satooshi/php-coveralls": "dev-master",
     "webforge/testplate": "1.*",
     "mockery/mockery": "dev-master",
     "liip/rmt": "0.9.*"
