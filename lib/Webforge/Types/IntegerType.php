@@ -22,7 +22,7 @@ use Webforge\Types\Adapters\TypeRuleMapper;
  *
  * z. B. Eine AutoIncrement-ID in der Datenbank ist ein PositiveInteger mit $zero === FALSE
  */
-class IntegerType extends Type implements ValidationType, DoctrineExportableType, MappedComponentType {
+class IntegerType extends Type implements ValidationType, DoctrineExportableType, MappedComponentType, SerializationType {
   
   /**
    * @var bool
@@ -53,6 +53,10 @@ class IntegerType extends Type implements ValidationType, DoctrineExportableType
    * Gibt den String zurück, der in @Doctrine\ORM\Mapping\Column(type="%s")  benutzt werden kann
    */
   public function getDoctrineExportType() {
+    return 'integer';
+  }
+
+  public function getSerializationType() {
     return 'integer';
   }
 

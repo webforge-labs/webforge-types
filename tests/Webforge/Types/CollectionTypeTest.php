@@ -2,15 +2,12 @@
 
 namespace Webforge\Types;
 
-class CollectionTypeTest extends \Webforge\Code\Test\Base {
+class CollectionTypeTest extends Test\TestCase {
 
   public function setUp() {
     $this->chainClass = 'Webforge\Types\CollectionType';
     parent::setUp();
-  }
-
-  public function testConstruct() {
-    return Type::create('Collection');
+    $this->type = Type::create('Collection');
   }
 
   public function testImplementationBadClass() {
@@ -35,6 +32,10 @@ class CollectionTypeTest extends \Webforge\Code\Test\Base {
     $this->assertEquals('Psc\Doctrine\Entity',$type->getType()->getClassFQN());
     return $type;
   }
+
+  public function testHasASerializationType() {
+    $this->assertTypeSerializes('ArrayCollection');
+  }
   
   /**
    * @depends testImplementationInnerTypeConstruct
@@ -43,10 +44,8 @@ class CollectionTypeTest extends \Webforge\Code\Test\Base {
     $this->assertEquals('Doctrine\Common\Collections\Collection<Psc\Doctrine\Entity>',$type->getPHPType());
   }
 
-  /**
-   * @depends testConstruct
-   */
-  public function testInterfaced($link) {
+  public function testInterfaced() {
+    $link = $this->type;
     $this->assertInstanceOf(__NAMESPACE__.'\InterfacedType', $link);
     $this->assertTrue(interface_exists($link->getInterface()), 'Interface: '.$link->getInterface().' existiert nicht');
     $this->assertEquals('Doctrine\Common\Collections\Collection', $link->getInterface());

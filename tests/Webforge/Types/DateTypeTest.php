@@ -12,7 +12,7 @@ class DateTypeTest extends \Webforge\Types\Test\TestCase {
   public function setUp() {
     $this->chainClass = 'Webforge\Types\DateType';
     parent::setUp();
-    $this->dateType = new DateType();
+    $this->type = $this->dateType = new DateType();
   }
   
   public function testMapsToComponentDatePicker() {
@@ -21,5 +21,9 @@ class DateTypeTest extends \Webforge\Types\Test\TestCase {
 
   public function testIsAObjectTypeForDate() {
     $this->assertObjectType('Webforge\Common\DateTime\Date', $this->dateType);
+  }
+
+  public function testHasASerializationType() {
+    $this->assertTypeSerializes('Webforge\Common\DateTime\Date');
   }
 }

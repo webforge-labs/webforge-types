@@ -7,7 +7,7 @@ use Webforge\Types\BooleanType;
 /**
  * @group class:Webforge\Types\BooleanType
  */
-class BooleanTypeTest extends \Webforge\Types\Test\Base {
+class BooleanTypeTest extends Test\TestCase {
 
   protected $type;
 
@@ -18,5 +18,9 @@ class BooleanTypeTest extends \Webforge\Types\Test\Base {
 
   public function testImplementsDoctrineExportableType() {
     $this->assertInstanceOf('Webforge\Types\DoctrineExportableType', $this->type);
+  }
+
+  public function testHasASerializationType() {
+    $this->assertTypeSerializes('boolean');
   }
 }

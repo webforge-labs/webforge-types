@@ -26,4 +26,9 @@ abstract class InterfacedObjectType extends ObjectType implements InterfacedType
   public function getPHPHint($namespaceContext = NULL) {
     return $this->getInterface(); // @TODO this fails to respect namespaceContext
   }
+
+  public function getSerializationType() {
+    return $this->getInterface(); // @TODO this fails to respect namespaceContext
+  }
+
 }

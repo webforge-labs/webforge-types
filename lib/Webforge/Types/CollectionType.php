@@ -107,7 +107,11 @@ class CollectionType extends \Webforge\Types\InterfacedObjectType implements Map
     
     // das geht leider nicht, weil wir dann die doctrine arraycollection nicht als implementierung benutzen können
     // yagni?
-    return $this->getInterfaceDefinition('Collection');
+    //return $this->getInterfaceDefinition('Collection');
+  }
+
+  public function getSerializationType() {
+    return 'ArrayCollection';
   }
 
   public function getDefaultValue() {

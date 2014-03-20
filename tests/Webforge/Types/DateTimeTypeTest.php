@@ -9,6 +9,8 @@ class DateTimeTypeTest extends \Webforge\Types\Test\TestCase {
   public function setUp() {
     $this->chainClass = 'Webforge\Types\DateTimeType';
     parent::setUp();
+
+    $this->type = Type::create('DateTime');
   }
 
   public function testDoctrineExportableType() {
@@ -21,5 +23,9 @@ class DateTimeTypeTest extends \Webforge\Types\Test\TestCase {
   
   public function testMapsToComponentDateTimePicker() {
     $this->assertTypeMapsComponent('DateTimePicker', Type::create('DateTime'));
+  }
+
+  public function testHasASerializationType() {
+    $this->assertTypeSerializes('any');
   }
 }

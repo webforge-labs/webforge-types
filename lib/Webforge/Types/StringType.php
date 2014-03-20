@@ -5,7 +5,7 @@ namespace Webforge\Types;
 use Webforge\Types\Adapters\TypeRuleMapper;
 use Webforge\Types\Adapters\ComponentMapper;
 
-class StringType extends Type implements DoctrineExportableType, MappedComponentType, ValidationType, WalkableHintType {
+class StringType extends Type implements DoctrineExportableType, MappedComponentType, ValidationType, WalkableHintType, SerializationType {
 
   public function getMappedComponent(ComponentMapper $componentMapper) {
     return $componentMapper->createComponent('TextField');
@@ -21,5 +21,9 @@ class StringType extends Type implements DoctrineExportableType, MappedComponent
   
   public function getValidatorRule(TypeRuleMapper $mapper) {
     return $mapper->createRule('Nes');
+  }
+
+  public function getSerializationType() {
+    return 'string';
   }
 }

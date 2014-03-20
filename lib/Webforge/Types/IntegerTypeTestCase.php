@@ -28,4 +28,11 @@ class IntegerTypeTestCase extends TestCase {
     $type->setZero(TRUE);
     $this->assertTrue($type->hasZero());
   }
+
+  /**
+   * @depends testConstruct
+   */
+  public function testHasASerializationType(IntegerType $type) {
+    $this->assertTypeSerializes('integer', $type);
+  }
 }

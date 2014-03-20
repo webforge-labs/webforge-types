@@ -4,7 +4,7 @@ namespace Webforge\Types;
 
 use Webforge\Types\Adapters\TypeRuleMapper;
 
-class FloatType extends Type implements DoctrineExportableType, MappedComponentType, ValidationType {
+class FloatType extends Type implements DoctrineExportableType, MappedComponentType, ValidationType, SerializationType {
 
   /**
    * @var bool
@@ -59,6 +59,10 @@ class FloatType extends Type implements DoctrineExportableType, MappedComponentT
   
   public function getDoctrineExportType() {
     return 'float';
+  }
+
+  public function getSerializationType() {
+    return 'double';
   }
   
   public function getPHPType() {

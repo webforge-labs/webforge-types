@@ -10,6 +10,8 @@ use Mockery as m;
 
 class TestCase extends \Webforge\Code\Test\Base {
 
+  protected $type;
+
   public function setUp() {
     parent::setUp();
     $this->mapper = m::mock('Webforge\Types\Adapters\ComponentMapper');
@@ -66,5 +68,17 @@ class TestCase extends \Webforge\Code\Test\Base {
     $msg = 'DokumentationsType des Type '.$type.' ist nicht korrekt';
     $this->assertEquals($docType, $type->getName(Type::CONTEXT_DOCBLOCK), $msg);
     $this->assertEquals($docType, $type->getDocType(), $msg);
+  }
+
+  protected function assertTypeSerializes($serType, Type $type = NULL) {
+    $type = $type ?: $this->type;
+
+    $this->assertInstanceOf('Webforge\Types\SerializationType', $type);
+
+    if ($serType === 'any') {
+      $this->assertNotEmpty($type->getSerializationType(), 'should return a serializiationType String');
+    } else {
+      $this->assertEquals($serType, $type->getSerializationType(), 'serialization type does not match');
+    }
   }
 }

@@ -12,7 +12,7 @@ class FloatTypeTest extends \Webforge\Types\Test\TestCase {
   public function setUp() {
     $this->chainClass = 'Webforge\Types\FloatType';
     parent::setUp();
-    $this->floatType = new FloatType();
+    $this->type = $this->floatType = new FloatType();
   }
   
   public function testAcceptance() {
@@ -20,5 +20,9 @@ class FloatTypeTest extends \Webforge\Types\Test\TestCase {
     $componentMock->shouldReceive('setDecimals')->once();
 
     $this->floatType->getMappedComponent($this->mapper);
+  }
+
+  public function testHasASerializationType() {
+    $this->assertTypeSerializes('double');
   }
 }

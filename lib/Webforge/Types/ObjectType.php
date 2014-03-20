@@ -6,7 +6,7 @@ use Psc\Code\Generate\GClass;
 use Psc\Code\Code;
 use Webforge\Common\ClassInterface;
 
-class ObjectType extends Type implements ParameterHintedType, DoctrineExportableType {
+class ObjectType extends Type implements ParameterHintedType, DoctrineExportableType, SerializationType {
   
   /**
    * @var ClassInterface
@@ -124,6 +124,15 @@ class ObjectType extends Type implements ParameterHintedType, DoctrineExportable
   
   public function getDoctrineExportType() {
     return \Doctrine\DBAL\Types\Type::OBJECT;
+  }
+
+
+  public function getSerializationType() {
+    if (isset($this->class)) {
+      return $this->class->getFQN();
+    } else {
+      return NULL;
+    }
   }
 
   public function implementsInterface($FQN) {

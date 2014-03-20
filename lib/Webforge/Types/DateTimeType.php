@@ -13,7 +13,7 @@ class DateTimeType extends \Webforge\Types\ObjectType implements DoctrineExporta
   public function getDoctrineExportType() {
     return 'WebforgeDateTime';
   }
-  
+
   public function getValidatorRule(TypeRuleMapper $mapper) {
     return $mapper->createRule('DateTime');
   }
