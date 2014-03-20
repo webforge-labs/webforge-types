@@ -14,6 +14,11 @@ class DateTimeType extends \Webforge\Types\ObjectType implements DoctrineExporta
     return 'WebforgeDateTime';
   }
 
+  public function getSerializationType() {
+    // we use the dateTimeHandler from the serializer for that
+    return 'WebforgeDateTime';
+  }
+
   public function getValidatorRule(TypeRuleMapper $mapper) {
     return $mapper->createRule('DateTime');
   }

@@ -26,6 +26,6 @@ class DateTimeTypeTest extends \Webforge\Types\Test\TestCase {
   }
 
   public function testHasASerializationType() {
-    $this->assertTypeSerializes('any');
+    $this->assertTypeSerializes('WebforgeDateTime'); // use DateTimeHandler (in project stack or webforge-serializer) for that
   }
 }
