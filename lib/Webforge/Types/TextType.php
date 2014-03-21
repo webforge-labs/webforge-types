@@ -9,6 +9,6 @@ class TextType extends StringType implements MappedComponentType, DoctrineExport
   }
 
   public function getDoctrineExportType() {
-    return 'string'; //text: Type that maps an SQL CLOB to a PHP string., that is too much, string is okay, too
+    return 'text'; // allthough text is really big, string is to small
   }
 }
