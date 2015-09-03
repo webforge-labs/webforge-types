@@ -6,6 +6,7 @@ use Webforge\Code\Generator\GClass;
 use Webforge\Common\Preg;
 use Webforge\Common\ClassUtil;
 use Webforge\Common\String as S;
+use Webforge\Types\DCEnumType;;
 
 abstract class Type {
   
@@ -83,6 +84,9 @@ abstract class Type {
         class_exists('Psc\Data\ArrayCollection') ? CollectionType::PSC_ARRAY_COLLECTION : CollectionType::WEBFORGE_COLLECTION, 
         new ObjectType(GClassAdapter::newGClass($fqn))
       );
+
+    } elseif ($fqn = Preg::qmatch($name, '/^Enum<(.*)>$/')) {
+      return new DCEnumType(GClassAdapter::newGClass($fqn));
 
     } elseif (S::endsWith($name, '[]')) {
       return new ArrayType(self::create(mb_substr($name, 0,-2)));

@@ -60,6 +60,14 @@ class TypeTest extends \Webforge\Code\Test\Base {
     $this->assertInstanceOf('Webforge\Types\ObjectType', $objectType = $arrayType->getType());
     $this->assertEquals('Webforge\Types\Exception', $objectType->getGClass()->getFQN());
   }
+
+  public function testCreationFromEnumTypes() {
+    require_once __DIR__.'/../../Labeler-Polyfill.php';
+
+    $enumType = Type::create('Enum<tiptoi\SoundLanguageType>');
+    $this->assertInstanceOf('Webforge\Types\DCEnumType', $enumType);
+    $this->assertEquals('tiptoi\SoundLanguageType', $enumType->getClass()->getFQN());
+  }
   
   /**
    * @dataProvider docBlockTypes

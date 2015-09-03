@@ -2,17 +2,17 @@
 
 namespace Webforge\Types;
 
-use Psc\Code\Generate\GClass;
 use Psc\CMS\Labeler;
 use Webforge\Types\Adapters\ComponentMapper;
 use Webforge\Types\Adapters\TypeRuleMapper;
+use Webforge\Common\ClassInterface;
 use Psc\Doctrine\ExportableType;
 
 class DCEnumType extends Type implements DoctrineExportableType, ValidationType, MappedComponentType, WalkableHintType {
   
   /**
    * 
-   * @var Gclass
+   * @var ClassInterface
    */
   protected $typeClass;
   
@@ -24,7 +24,7 @@ class DCEnumType extends Type implements DoctrineExportableType, ValidationType,
   /**
    * Die Klasse des Types
    */
-  public function __construct(GClass $typeClass, Array $valueLabels = array(), Labeler $labeler = NULL) {
+  public function __construct(ClassInterface $typeClass, Array $valueLabels = array(), Labeler $labeler = NULL) {
     $this->typeClass = $typeClass;
     $this->setLabeler($labeler ?: new Labeler); // auch getter injection
     
@@ -59,7 +59,10 @@ class DCEnumType extends Type implements DoctrineExportableType, ValidationType,
   public function hasClass() {
     return isset($this->typeClass);
   }
-  
+
+  /**
+   * @return ClassInterface
+   */
   public function getClass() {
     return $this->typeClass;
   }
