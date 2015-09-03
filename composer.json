@@ -20,7 +20,7 @@
   "require-dev": {
     "satooshi/php-coveralls": "dev-master",
     "webforge/testplate": "1.*",
-    "mockery/mockery": "0.8.*",
+    "mockery/mockery": "@stable",
     "liip/rmt": "0.9.*"
   },
   "extra": {
