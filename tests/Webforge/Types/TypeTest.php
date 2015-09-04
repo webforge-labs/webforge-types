@@ -121,6 +121,11 @@ class TypeTest extends \Webforge\Code\Test\Base {
       $t('Array'),
       'integer[]'
     );
+
+    $tests[] = array(
+      $t('String'),
+      'string in MD5 gehashed'
+    );
     
     return $tests;
   }

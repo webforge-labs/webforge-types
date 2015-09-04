@@ -111,6 +111,10 @@ abstract class Type {
     if (mb_strpos($type, '\\') !== FALSE && !S::startsWith($type, 'Object<')) {
       return self::create('Object<'.$type.'>');
     }
+
+    if (($wordSep = mb_strpos($type, ' ')) !== FALSE) {
+      $type = mb_substr($type, 0, $wordSep);
+    }
     
     $type = ucfirst($type);
     return self::create($type);
