@@ -95,6 +95,8 @@ abstract class Type {
       return $name;
 
     } else {
+      if ($name === 'Bool') $name = 'Boolean';
+
       $c = sprintf('%s\%sType', __NAMESPACE__, $name);
     }
     

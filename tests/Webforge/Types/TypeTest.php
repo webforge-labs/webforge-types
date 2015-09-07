@@ -98,6 +98,16 @@ class TypeTest extends \Webforge\Code\Test\Base {
     );
 
     $tests[] = array(
+      $t('Boolean'),
+      'bool'
+    );
+
+    $tests[] = array(
+      $t('Boolean'),
+      'boolean'
+    );
+
+    $tests[] = array(
       $t('Object'),
       'stdClass'
     );
