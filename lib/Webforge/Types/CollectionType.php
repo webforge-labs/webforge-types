@@ -34,6 +34,7 @@ class CollectionType extends \Webforge\Types\InterfacedObjectType implements Map
     }
 
     $this->implementation = $implementation;
+    $this->interfaceClass = GClassAdapter::newGClass($this->getInterface());
     
     parent::__construct($implementation);
     
@@ -108,6 +109,24 @@ class CollectionType extends \Webforge\Types\InterfacedObjectType implements Map
     // das geht leider nicht, weil wir dann die doctrine arraycollection nicht als implementierung benutzen können
     // yagni?
     //return $this->getInterfaceDefinition('Collection');
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public function getParameterHint($useFQN = TRUE) {
+    if ($useFQN) {
+      return '\\'.$this->interfaceClass->getFQN();
+    } else {
+      return $this->interfaceClass->getName();
+    }
+  }
+  
+  /**
+   * @inheritdoc
+   */
+  public function getParameterHintImport() {
+    return $this->interfaceClass;
   }
 
   public function getSerializationType() {
