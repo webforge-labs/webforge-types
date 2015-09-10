@@ -22,10 +22,13 @@ class CodeExporter implements \Webforge\Types\Exporter {
   public function exportType(Type $type) {
     
     if ($type instanceof PersistentCollectionType) {
+      $implementationParameter = $type->getImplementationConstantCode();
+
       return $this->codeWriter->writeConstructor(
         $type->getTypeClass(),
         // "purer" php code
-        $this->exportGClass($type->getType()->getClass())
+        $this->exportGClass($type->getType()->getClass()).
+        ($type->getClassFQN() != CollectionType::WEBFORGE_COLLECTION ? ', '.$implementationParameter : '')
       );
 
     } elseif ($type instanceof CollectionType) {

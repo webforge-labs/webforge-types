@@ -16,7 +16,9 @@ abstract class InterfacedObjectType extends ObjectType implements InterfacedType
         return parent::setClass($class);
       }
       
-    } catch (\ReflectionException $e) {}
+    } catch (\ReflectionException $e) {
+      return 'caught an exception that does not allow to check if implementation is correct';
+    }
       
     throw new TypeException(
       sprintf("The Class '%s' for %s has to implement: '%s'.", $class->getFQN(), get_class($this), $this->getInterface())

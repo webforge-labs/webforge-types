@@ -6,9 +6,9 @@ use Webforge\Common\ClassInterface;
 
 class PersistentCollectionType extends \Webforge\Types\CollectionType {
   
-  public function __construct(ClassInterface $entityClass) {
+  public function __construct(ClassInterface $entityClass, $implementation = self::WEBFORGE_COLLECTION) {
     parent::__construct(
-      self::WEBFORGE_COLLECTION,
+      $implementation,
       new EntityType($entityClass)
     );
   }

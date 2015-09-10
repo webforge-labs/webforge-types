@@ -63,6 +63,11 @@ class CodeExporterTest extends \Webforge\Types\Test\Base {
       "new \Webforge\Types\PersistentCollectionType(new \Psc\Code\Generate\GClass('Psc\\\\CMS\\\\SpecialEntity'))",
       new \Webforge\Types\PersistentCollectionType(GClassAdapter::newGClass('Psc\CMS\SpecialEntity'))
     );
+
+    $this->expectExport(
+      "new \Webforge\Types\PersistentCollectionType(new \Psc\Code\Generate\GClass('Psc\\\\CMS\\\\NormalEntity'), \Webforge\Types\CollectionType::PSC_ARRAY_COLLECTION)",
+      new \Webforge\Types\PersistentCollectionType(GClassAdapter::newGClass('Psc\CMS\NormalEntity'), CollectionType::PSC_ARRAY_COLLECTION)
+    );
   }
 
   protected function expectExport($code, Type $type) {
