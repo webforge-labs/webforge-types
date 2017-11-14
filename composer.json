@@ -18,8 +18,8 @@
     "webforge/common": "~1.9.0"
   },
   "require-dev": {
-    "webforge/testplate": "1.*",
-    "mockery/mockery": "@stable",
+    "webforge/testplate": "~1.6.0",
+    "mockery/mockery": "~0.9@stable",
     "liip/rmt": "0.9.*"
   },
   "extra": {
