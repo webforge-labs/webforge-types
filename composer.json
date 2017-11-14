@@ -15,7 +15,7 @@
     }
   },
   "require":{
-    "webforge/common": ">= 1.5.0"
+    "webforge/common": "~1.9.0"
   },
   "require-dev": {
     "webforge/testplate": "1.*",
