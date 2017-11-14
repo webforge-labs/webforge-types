@@ -5,7 +5,7 @@ namespace Webforge\Types;
 use Webforge\Code\Generator\GClass;
 use Webforge\Common\Preg;
 use Webforge\Common\ClassUtil;
-use Webforge\Common\String as S;
+use Webforge\Common\StringUtil as S;
 use Webforge\Types\DCEnumType;;
 
 abstract class Type {

@@ -2,7 +2,7 @@
 
 namespace Psc\CMS;
 
-use Webforge\Common\String AS S;
+use Webforge\Common\StringUtil as S;
 use Webforge\Common\Preg;
 
 /**
